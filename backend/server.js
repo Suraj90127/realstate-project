@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
-app.use(fileUpload({ useTempFiles: true }));
+app.use(fileUpload({ useTempFiles: true, tempFileDir: "/tmp/" }));
 app.use("/api/properties", propertyRoutes);
 
 dbConnect()

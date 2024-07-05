@@ -4,21 +4,30 @@ import {
   addHighlightPoint,
   addLocationAdvantagePoint,
   addQuestion,
+  addAboutDeveloper,
   getProperties,
   getPropertyById,
   updateProperty,
   deleteProperty,
 } from "../controllers/propertyController.js";
+import multer from "multer";
 // import formidable from "express-formidable";
 
 const router = express.Router();
+const upload = multer({ dest: "uploads/" });
 
-router.post("/properties", createProperty);
-router.put("/properties/:id/highlight", addHighlightPoint);
-router.put("/properties/:id/locationadvantage", addLocationAdvantagePoint);
-router.put("/properties/:id/question", addQuestion);
-router.get("/", getProperties);
-router.get("/:id", getPropertyById);
+router.post("/", createProperty);
+router.put("/:id/highlight", addHighlightPoint);
+router.put("/:id/locationadvantage", addLocationAdvantagePoint);
+router.put("/:id/question", addQuestion);
+router.put("/:id/aboutdeveloper", upload.single("image"), addAboutDeveloper);
+
+// Configure multer for file uploads
+
+// router.post('/properties/:propertyId/aboutdeveloper', upload.single('image'), addAboutDeveloper);
+
+router.get("/get-properties", getProperties);
+router.get("/get-properties/:id", getPropertyById);
 router.put("/:id", updateProperty);
 router.delete("/:id", deleteProperty);
 

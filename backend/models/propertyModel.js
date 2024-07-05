@@ -8,7 +8,7 @@ const propertySchema = new Schema(
     },
     nameslug: {
       type: String,
-      required: true,
+      // required: true,
     },
     city: {
       type: String,
@@ -16,7 +16,7 @@ const propertySchema = new Schema(
     },
     cityslug: {
       type: String,
-      required: true,
+      // required: true,
     },
     qut: {
       type: String,
@@ -91,7 +91,7 @@ const propertySchema = new Schema(
       },
     ],
 
-    video: {
+    videos: {
       type: Array,
       required: false, // videos are optional
     },
@@ -112,6 +112,10 @@ const propertySchema = new Schema(
         about: {
           type: String,
           // required: true,
+        },
+        image: {
+          type: String, // URL of the image
+          required: true,
         },
       },
     ],

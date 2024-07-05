@@ -1,14 +1,15 @@
 import Property from "../models/propertyModel.js";
-import fs from "fs/promises";
-import cloudinary from "../utiles/cloudinary.js"; // Import the Cloudinary config
+import {
+  uploadImagesToCloudinary,
+  uploadVideosToCloudinary,
+  uploadImageToCloudinary,
+} from "../utiles/cloudinary.js";
 
 export const createProperty = async (req, res) => {
   try {
-    const {
+    let {
       name,
-      nameslug,
       city,
-      cityslug,
       qut,
       location,
       apartments,
@@ -20,43 +21,41 @@ export const createProperty = async (req, res) => {
       discription,
     } = req.body;
 
-    const images = req.files.images
-      ? await uploadImagesToCloudinary(req.files.images)
-      : [];
-    const amenitiesimages = req.files.amenitiesimages
-      ? await uploadImagesToCloudinary(req.files.amenitiesimages)
-      : [];
-    const gallery = req.files.gallery
-      ? await uploadImagesToCloudinary(req.files.gallery)
-      : [];
-    const floorplan = req.files.floorplan
-      ? await uploadImagesToCloudinary(req.files.floorplan)
-      : [];
+    const existingProperty = await Property.findOne({ name });
 
-    const videos = req.files.video
-      ? await uploadImagesToCloudinary(req.files.video)
-      : [];
-
-      
-    console.log("video", videos);
-    let allVideoUrl = [];
-    if (videos && videos.length > 0) {
-      for (let i = 0; i < videos.length; i++) {
-        try {
-          console.log(`Uploading video: ${videos[i].filepath}`); // Debug: Log file path
-          const result = await cloudinary.uploader.upload(videos[i].filepath, {
-            folder: "products/videos",
-            resource_type: "video",
-          });
-          allVideoUrl.push(result.url);
-        } catch (uploadErr) {
-          console.error(
-            `Error uploading video ${videos[i].filepath}:`,
-            uploadErr
-          ); // Log specific upload error
-        }
-      }
+    if (existingProperty) {
+      return res
+        .status(400)
+        .json({ message: "Property with this name already exists." });
     }
+
+    name = name.trim();
+    const nameslug = name.split(" ").join("-");
+
+    city = city.trim();
+    const cityslug = city.split(" ").join("-");
+
+    const images =
+      req.files && req.files.images
+        ? await uploadImagesToCloudinary(req.files.images)
+        : [];
+    const amenitiesimages =
+      req.files && req.files.amenitiesimages
+        ? await uploadImagesToCloudinary(req.files.amenitiesimages)
+        : [];
+    const gallery =
+      req.files && req.files.gallery
+        ? await uploadImagesToCloudinary(req.files.gallery)
+        : [];
+    const floorplan =
+      req.files && req.files.floorplan
+        ? await uploadImagesToCloudinary(req.files.floorplan)
+        : [];
+
+    const videos =
+      req.files && req.files.videos
+        ? await uploadVideosToCloudinary(req.files.videos)
+        : [];
 
     const newProperty = new Property({
       name,
@@ -76,7 +75,7 @@ export const createProperty = async (req, res) => {
       gallery,
       floorplan,
       discription,
-      videos: allVideoUrl,
+      videos,
     });
 
     await newProperty.save();
@@ -84,26 +83,6 @@ export const createProperty = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-};
-
-const uploadImagesToCloudinary = async (files) => {
-  const urls = [];
-  const upload = async (file) => {
-    const result = await cloudinary.v2.uploader.upload(file.tempFilePath);
-    return result.secure_url;
-  };
-
-  if (Array.isArray(files)) {
-    for (const file of files) {
-      const url = await upload(file);
-      urls.push(url);
-    }
-  } else {
-    const url = await upload(files);
-    urls.push(url);
-  }
-
-  return urls;
 };
 
 // controllers/propertyController.js
@@ -164,6 +143,38 @@ export const addQuestion = async (req, res) => {
     await property.save();
 
     res.status(200).json(property);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+export const addAboutDeveloper = async (req, res) => {
+  try {
+    const { propertyId } = req.params;
+    const { exp, project, client, about } = req.body;
+
+    // Upload image to Cloudinary
+    const image = req.file ? await uploadImageToCloudinary(req.file) : null;
+
+    if (!image) {
+      return res.status(400).json({ message: "Image upload failed" });
+    }
+
+    const updatedProperty = await Property.findByIdAndUpdate(
+      propertyId,
+      {
+        $push: {
+          aboutdevelor: { exp, project, client, about, image },
+        },
+      },
+      { new: true }
+    );
+
+    if (!updatedProperty) {
+      return res.status(404).json({ message: "Property not found" });
+    }
+
+    res.status(200).json(updatedProperty);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
