@@ -20,16 +20,15 @@ router.post("/", createProperty);
 router.put("/:id/highlight", addHighlightPoint);
 router.put("/:id/locationadvantage", addLocationAdvantagePoint);
 router.put("/:id/question", addQuestion);
-router.put("/:id/aboutdeveloper", upload.single("image"), addAboutDeveloper);
-
+router.put("/:id/aboutdeveloper", addAboutDeveloper);
 // Configure multer for file uploads
 
 // router.post('/properties/:propertyId/aboutdeveloper', upload.single('image'), addAboutDeveloper);
 
 router.get("/get-properties", getProperties);
 router.get("/get-properties/:id", getPropertyById);
-router.put("/:id", updateProperty);
-router.delete("/:id", deleteProperty);
+router.put("/update/:id", updateProperty);
+router.delete("/delete/:id", deleteProperty);
 
 export default router;
 

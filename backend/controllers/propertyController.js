@@ -4,6 +4,7 @@ import {
   uploadVideosToCloudinary,
   uploadImageToCloudinary,
 } from "../utiles/cloudinary.js";
+import formidable from "formidable";
 
 export const createProperty = async (req, res) => {
   try {
@@ -19,6 +20,8 @@ export const createProperty = async (req, res) => {
       date,
       launch,
       discription,
+      service,
+      resourcetype,
     } = req.body;
 
     const existingProperty = await Property.findOne({ name });
@@ -70,6 +73,8 @@ export const createProperty = async (req, res) => {
       price,
       date,
       launch,
+      service,
+      resourcetype,
       images,
       amenitiesimages,
       gallery,
@@ -148,23 +153,33 @@ export const addQuestion = async (req, res) => {
   }
 };
 
+// Make sure you have this utility function
+
 export const addAboutDeveloper = async (req, res) => {
   try {
-    const { propertyId } = req.params;
+    const { id } = req.params;
     const { exp, project, client, about } = req.body;
-
-    // Upload image to Cloudinary
-    const image = req.file ? await uploadImageToCloudinary(req.file) : null;
+    const image = req.files.image;
+    console.log("data", exp, project, client, about);
+    console.log("image", image);
 
     if (!image) {
+      return res.status(400).json({ message: "Image file is required" });
+    }
+
+    // Upload image to Cloudinary
+    const imageUrl = await uploadImageToCloudinary(image.tempFilePath);
+
+    if (!imageUrl) {
       return res.status(400).json({ message: "Image upload failed" });
     }
 
+    // Update property with new aboutdevelor data
     const updatedProperty = await Property.findByIdAndUpdate(
-      propertyId,
+      id,
       {
         $push: {
-          aboutdevelor: { exp, project, client, about, image },
+          aboutdevelor: { exp, project, client, about, image: imageUrl },
         },
       },
       { new: true }
@@ -176,6 +191,7 @@ export const addAboutDeveloper = async (req, res) => {
 
     res.status(200).json(updatedProperty);
   } catch (error) {
+    console.error("Error adding about developer:", error);
     res.status(500).json({ message: error.message });
   }
 };
