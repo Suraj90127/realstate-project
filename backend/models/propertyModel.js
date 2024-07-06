@@ -90,7 +90,6 @@ const propertySchema = new Schema(
         ans: { type: String },
       },
     ],
-
     videos: {
       type: Array,
       required: false, // videos are optional
@@ -119,6 +118,14 @@ const propertySchema = new Schema(
         },
       },
     ],
+    service: {
+      type: String,
+      // Add any additional validation or default values if needed
+    },
+    resourcetype: {
+      type: String,
+      // Add any additional validation or default values if needed
+    },
   },
   { timestamps: true }
 );
