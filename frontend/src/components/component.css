@@ -1,26 +1,55 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
 .animate-marquee {
-    animation: marquee 15s linear infinite;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateY(100%);
   }
-  @keyframes marquee {
-    0% {
-      transform: translateY(100%);
-    }
-    100% {
-      transform: translateY(-100%);
-    }
+
+  100% {
+    transform: translateY(-100%);
   }
-  .Developer{
-    font-family: "Roboto Condensed", sans-serif;
-  }
-  footer{
-    
-    font-family: "Roboto Condensed", sans-serif;
-  }
-  footer ul li::before{
-    content: '•';
-    margin-right: 10px;
-    font-size: 20px;
-    font-weight: 900;
-    color: #fead26;
-  }
+}
+
+.Developer {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+footer {
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+footer ul li::before {
+  content: '•';
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fead26;
+}
+
+
+.missen-div {
+  background-color: #fff;
+  padding: 30px;
+  height: 100%;
+  background-image: -moz-linear-gradient(90deg, rgb(252, 236, 216) 0%, rgb(254, 246, 236) 41%, rgb(255, 255, 255) 100%);
+  background-image: -webkit-linear-gradient(90deg, rgb(252, 236, 216) 0%, rgb(254, 246, 236) 41%, rgb(255, 255, 255) 100%);
+  background-image: -ms-linear-gradient(90deg, rgb(252, 236, 216) 0%, rgb(254, 246, 236) 41%, rgb(255, 255, 255) 100%);
+  box-shadow: 0 0 10px gainsboro;
+
+}
+
+/* Add this to your CSS file */
+.slick-slide {
+  padding: 0 10px;
+  /* Adjust the padding as needed */
+}
+
+.slider-container {
+  /* Adjust the negative margin to account for the padding */
+  margin: 0 -10px;
+}
