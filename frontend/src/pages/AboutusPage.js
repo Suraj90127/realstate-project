@@ -11,6 +11,9 @@ import awa1 from "../Assets/awa1.jpg";
 import awa2 from "../Assets/awa2.jpg";
 import awa3 from "../Assets/awa3.jpg";
 import awa4 from "../Assets/awa4.jpg";
+import Luxury from "../components/Luxury";
+import Testimonials from "../components/Testimonials";
+import Developer from "../components/Developer";
 
 const AboutusPage = () => {
   const settings = {
@@ -21,6 +24,38 @@ const AboutusPage = () => {
     autoplay: true,
     autoplaySpeed: 2000,
     pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1600, // xl
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 1200, // lg
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 991, // md-lg
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768, // sm-md
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 576, // sm
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="bg-[#f8f8f8]">
@@ -171,6 +206,15 @@ const AboutusPage = () => {
                 </Slider>
               </div>
             </div>
+          </div>
+          <div>
+            <Luxury />
+          </div>
+          <div>
+            <Testimonials />
+          </div>
+          <div>
+            <Developer />
           </div>
         </div>
       </div>
