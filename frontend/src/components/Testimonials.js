@@ -34,7 +34,7 @@ const Testimonials = () => {
   };
   return (
     <div>
-      <div className="relative flex justify-center w-[100%] mx-auto bg-card text-card-foreground p-6 rounded-lg shadow-lg overflow-hidden">
+      <div className="relative flex justify-center w-[100%] mx-auto bg-[#eaeaea] text-card-foreground p-6 rounded-lg shadow-lg overflow-hidden">
       <div className="flex items-center sm:w-[100%] md:w-[70%] justify-between">
         <button
           onClick={() => showSlide((currentSlide - 1 + testimonials.length) % testimonials.length)}
