@@ -12,6 +12,8 @@
   100% {
     transform: translateY(-100%);
   }
+
+  <<<<<<< HEAD
 }
 
 .Developer {
@@ -52,4 +54,39 @@ footer ul li::before {
 .slider-container {
   /* Adjust the negative margin to account for the padding */
   margin: 0 -10px;
+}
+
+=======.Developer {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+footer {
+
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.blog {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.slider {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+footer ul li::before {
+  content: '•';
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #fead26;
+}
+
+/* Luxury */
+.Luxury {
+  font-family: "Roboto Condensed", sans-serif;
+  background-image: url(../Assets/luxury_living_bg.webp);
+  background-size: cover;
+  height: 700px;
+  background-attachment: fixed;
+  background-position: center center;
 }
