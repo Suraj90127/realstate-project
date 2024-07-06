@@ -2,18 +2,18 @@ import "./App.css";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HomePage from "./page/HomePage";
-import AboutPage from "./page/AboutPage";
+import HomePage from "./pages/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <div>
+      <div className="m-0 p-0 overflow-hidden">
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/about" element={<AboutPage />}></Route>
         </Routes>
+        <Footer />
       </div>
     </>
   );

@@ -27,8 +27,8 @@ nav {
     font-weight: 600;
   }
   .logo img{
-    max-width: 260px;
-    width: 260px;
+    max-width: 200px;
+    width: 200px;
   }
   
   nav .navbar .nav-links {
@@ -65,12 +65,6 @@ nav {
   }
   .navbar .links li a:hover{
     color: #ffffff;
-  }
-  .links li a:hover{
-    transition: 0.5s;
-    line-height: 70px;
-    background-color: #1519b2;
-    border-radius: 10px;
   }
   
   nav .navbar .links li .arrow {
@@ -114,15 +108,29 @@ nav {
   }
   
   .search-box button{
-    line-height: 40px;
+    line-height: 45px;
     width: 150px;
     height: 40px;
-    font-weight: 600;
-    background-color: #1519b2;
-    box-shadow: 0px 0px 5px #151ab228;
+    font-weight: 700;
+    font-size: 25px;
+    background-color: transparent;
     border: none;
     color: #fff;
   
+  }
+  .call{
+    margin-right: 10px;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: call 0.5s linear 0s infinite alternate-reverse;
+  }
+  @keyframes call {
+    0% {
+      transform: rotate(20deg);
+    }
+    100% {
+      transform: rotate(-20deg);
+    }
+    
   }
   
   .navbar .nav-links .sidebar-logo {
