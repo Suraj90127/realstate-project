@@ -11,10 +11,13 @@ import Luxury from "../components/Luxury";
 import Blogs from "../components/Blogs";
 import Projectslider from "../components/Projectslider";
 import Popularplace from "../components/Popularplace";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
     <div>
+      <Navbar />
       <div className="header">
         <img src={bg} alt="" />
         <p className="sm:text-[40px] md:text-[60px] text-white text-center">
@@ -144,6 +147,7 @@ const Home = () => {
       </section>
       <Developer />
       <Blogs />
+      <Footer />
     </div>
   );
 };

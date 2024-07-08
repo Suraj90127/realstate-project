@@ -11,12 +11,14 @@ const Developer = () => {
         <div className="relative overflow-hidden h-80">
           <div className="absolute inset-0 "></div>
           <div className="h-full flex justify-center overflow-hidden">
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 justify-self-center w-[80%] animate-marquee">
-              <img
-                src="https://placehold.co/150x100?text=Conscient"
-                alt="Conscient logo"
-                className="h-auto w-[300px] border border-border rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
-              />
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 justify-self-center w-[95%] animate-marquee">
+              <div>
+                <img
+                  src="https://placehold.co/150x100?text=Conscient"
+                  alt="Conscient logo"
+                  className="h-auto w-[300px] border border-border rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                />
+              </div>
               <img
                 src="https://placehold.co/150x100?text=Embassy"
                 alt="Embassy logo"

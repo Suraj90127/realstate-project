@@ -19,7 +19,7 @@ const propertySchema = new Schema(
       // required: true,
     },
     qut: {
-      type: String,
+      type: Number,
       required: true,
     },
     location: {
@@ -97,19 +97,19 @@ const propertySchema = new Schema(
     aboutdevelor: [
       {
         exp: {
-          type: String,
+          type: Number,
           // required: true,
         },
         project: {
-          type: String,
+          type: Number,
           // required: true,
         },
         client: {
-          type: String,
+          type: Number,
           // required: true,
         },
         about: {
-          type: String,
+          type: Number,
           // required: true,
         },
         image: {

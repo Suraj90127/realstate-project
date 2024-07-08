@@ -74,7 +74,7 @@ const Navbar = () => {
                 <Link to="/about-us">ABOUT US</Link>
               </li>
               <li>
-                <Link to="/services">PROJECTS</Link>
+                <Link to="/project">PROJECTS</Link>
               </li>
               <li>
                 <Link to="/developer">DEVELOPERS</Link>
@@ -84,6 +84,9 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/contact">CONTACT</Link>
+              </li>
+              <li>
+                <Link to="/dashbord">Admin</Link>
               </li>
               <li>
                 <Link to="/contact" className="search-box flex">
