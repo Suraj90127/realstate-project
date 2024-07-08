@@ -1,4 +1,5 @@
 import React from 'react';
+import "./Home.css";
 import bg from "../Assets/desktop-banner.jpg";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { FaBuilding } from "react-icons/fa";
@@ -10,6 +11,7 @@ import img1 from "../Assets/signature-global-titanium.webp"
 import logo from "../Assets/signature-global-titanium-logo.png"
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
 
 const properties = [
   {
@@ -42,7 +44,7 @@ const properties = [
 
 const Project = () => {
   return (
-    <div>
+    <div className="project">
         <Navbar />
       <div className="developer-header">
         <img src={bg} alt="" />
@@ -80,7 +82,7 @@ const Project = () => {
             </div>
             <div className="flex border-t-2 p-2 gap-5">
               <button className="bg-[white] sm:h-[40px] md:h-auto text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-2 rounded-[10px]">Whatsapp</button>
-              <button className="bg-[#fead26] sm:h-[40px] md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1"><span className="sm:hidden md:block">View</span> Detail</button>
+              <Link to="/propertyDetail"><button className="bg-[#fead26] sm:h-[40px] md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1"><span className="sm:hidden md:block">View</span> Detail</button></Link>
               <button className="bg-[#fead26] sm:h-[40px] md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1"><span className="sm:hidden md:block">Get</span> Call</button>
             </div>
           </div>

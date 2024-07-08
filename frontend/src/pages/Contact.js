@@ -1,5 +1,6 @@
 import React from 'react'
 import bg from "../Assets/desktop-banner.jpg";
+import "./Home.css";
 
 const Contact = () => {
   return (

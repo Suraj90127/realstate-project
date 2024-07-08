@@ -10,6 +10,7 @@ import BlogNews from "./pages/BlogNews";
 import Contact from "./pages/Contact";
 import BlogDetail from "./pages/BlogDetail";
 import Project from "./pages/Project";
+import PropertyDetail from "./pages/PropertyDetail";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/project" element={<Project />}></Route>
+          <Route path="/propertyDetail" element={<PropertyDetail />}></Route>
         </Routes>
         <Footer />
       </div>
