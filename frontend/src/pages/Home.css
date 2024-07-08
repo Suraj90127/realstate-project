@@ -34,6 +34,16 @@
 .developer-page{
     font-family: "Roboto Condensed", sans-serif;
 }
+.projectDetail{
+    font-family: "Roboto Condensed", sans-serif;
+}
+.project{
+    font-family: "Roboto Condensed", sans-serif;
+}
+/* .side-form{
+    position: sticky;
+    top: 00px;
+} */
 .developer-header{
     position: relative;
     height: 320px;
