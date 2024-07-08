@@ -1,5 +1,6 @@
 import React from "react";
 import "./component.css";
+import { Link } from "react-router-dom";
 
 const Developer = () => {
   return (
@@ -8,7 +9,7 @@ const Developer = () => {
         <h2 className="text-4xl font-extrabold text-center mb-6">
           MAJOR <span className="text-[#fead26]">DEVELOPERS</span>
         </h2>
-        <div className="relative overflow-hidden h-80">
+        <Link to="/developerDetail"><div className="relative overflow-hidden h-80">
           <div className="absolute inset-0 "></div>
           <div className="h-full flex justify-center overflow-hidden">
             <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 justify-self-center w-[80%] animate-marquee">
@@ -90,6 +91,7 @@ const Developer = () => {
             </div>
           </div>
         </div>
+        </Link>
       </div>
     </div>
   );

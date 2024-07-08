@@ -2,8 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { FaFacebookSquare, FaLinkedin, FaYoutube, FaInstagramSquare } from "react-icons/fa";
-
+import "./Home.css";
 import bg from "../Assets/desktop-banner.jpg";
 
 const sections = [
@@ -34,7 +33,7 @@ const sections = [
 const BlogDetail = () => {
 
   return (
-    <div className="">
+    <div className="blog-detail">
       <Navbar />
       <div className="developer-header">
         <img src={bg} alt="" />
