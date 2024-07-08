@@ -9,6 +9,7 @@ import DeveloperPage from "./pages/DeveloperPage";
 import BlogNews from "./pages/BlogNews";
 import Contact from "./pages/Contact";
 import BlogDetail from "./pages/BlogDetail";
+import Project from "./pages/Project";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/blog&news" element={<BlogNews />}></Route>
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />}></Route>
+          <Route path="/project" element={<Project />}></Route>
         </Routes>
         <Footer />
       </div>
