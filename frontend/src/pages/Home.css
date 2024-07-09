@@ -40,10 +40,9 @@
 .project{
     font-family: "Roboto Condensed", sans-serif;
 }
-/* .side-form{
-    position: sticky;
-    top: 00px;
-} */
+.blog-detail{
+    font-family: "Roboto Condensed", sans-serif;
+}
 .developer-header{
     position: relative;
     height: 320px;

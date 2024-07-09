@@ -16,7 +16,6 @@ import AddPoint from "./pages/AddPoint";
 =======
 import Project from "./pages/Project";
 import PropertyDetail from "./pages/PropertyDetail";
->>>>>>> 1fe5676cbd0cdcff9b8f7a54d389a70c3a0ac274
 
 function App() {
   return (
@@ -36,7 +35,6 @@ function App() {
 =======
           <Route path="/project" element={<Project />}></Route>
           <Route path="/propertyDetail" element={<PropertyDetail />}></Route>
->>>>>>> 1fe5676cbd0cdcff9b8f7a54d389a70c3a0ac274
         </Routes>
       </div>
     </>

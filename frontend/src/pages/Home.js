@@ -11,8 +11,6 @@ import Luxury from "../components/Luxury";
 import Blogs from "../components/Blogs";
 import Projectslider from "../components/Projectslider";
 import Popularplace from "../components/Popularplace";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -53,85 +51,30 @@ const Home = () => {
       <Projectslider />
       {/* Our services */}
       <div className="bg-[#fead26] py-10">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-primary-foreground mb-8 text-white">
-            OUR <span className="text-black">SERVICES</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <div className="bg-card rounded-lg overflow-hidden shadow-lg relative">
+      <div className="container mx-auto text-center">
+        <h2 className="text-4xl font-bold text-primary-foreground mb-8 text-white">
+          OUR <span className="text-black">SERVICES</span>
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {services.map((service, index) => (
+            <div key={index} className="bg-card rounded-lg overflow-hidden shadow-lg relative">
               <img
-                src="https://placehold.co/300x400"
-                alt="Commercial Building"
+                src={service.imgSrc}
+                alt={service.altText}
                 className="w-full h-full object-cover"
               />
-              <div className="p-4 text-center bottom-0 w-full  absolute z-10">
-                <h3 className="text-xl font-semibold">Commercial</h3>
-                <button className="mt-2 bg-[#fead26] text-white  text-[15px] py-2 px-4 rounded">
+              <div className="p-4 text-center bottom-0 w-full absolute z-10">
+                <h3 className="text-xl font-semibold">{service.title}</h3>
+                <Link to="/commercial"><button className="mt-2 bg-[#fead26] text-white text-[15px] py-2 px-4 rounded">
                   View Details
                 </button>
+                </Link>
               </div>
             </div>
-            <div className="bg-card rounded-lg overflow-hidden shadow-lg relative">
-              <img
-                src="https://placehold.co/300x400"
-                alt="Residential Building"
-                className="w-full h-full object-cover"
-              />
-              <div className="p-4 text-center  bottom-0 w-full  absolute z-10">
-                <h3 className="text-xl font-semibold">Residential</h3>
-                <button className="mt-2 bg-[#fead26] text-white text-[15px] py-2 px-4 rounded">
-                  View Details
-                </button>
-              </div>
-            </div>
-            <div className="bg-card rounded-lg overflow-hidden shadow-lg relative">
-              <img
-                src="https://placehold.co/300x400"
-                alt="Builder Floors"
-                className="w-full h-full object-cover"
-              />
-              <div className="p-4 text-center  bottom-0 w-full  absolute z-10">
-                <h3 className="text-xl font-semibold text-card-foreground">
-                  Builder Floors
-                </h3>
-                <button className="mt-2 bg-[#fead26] text-white text-[15px] py-2 px-4 rounded">
-                  View Details
-                </button>
-              </div>
-            </div>
-            <div className="bg-card rounded-lg overflow-hidden shadow-lg relative">
-              <img
-                src="https://placehold.co/300x400"
-                alt="Leased Building"
-                className="w-full h-full object-cover"
-              />
-              <div className="p-4 text-center  bottom-0 w-full  absolute z-10">
-                <h3 className="text-xl font-semibold text-card-foreground">
-                  Leased
-                </h3>
-                <button className="mt-2 bg-[#fead26] text-white text-[15px] py-2 px-4 rounded">
-                  View Details
-                </button>
-              </div>
-            </div>
-            <div className="bg-card rounded-lg overflow-hidden shadow-lg relative">
-              <img
-                src="https://placehold.co/300x400"
-                alt="Pre-Leased Building"
-                className="w-full h-full object-cover"
-              />
-              <div className="p-4 text-center  bottom-0 w-full  absolute z-10">
-                <h3 className="text-xl font-semibold text-card-foreground">
-                  Pre-Leased
-                </h3>
-                <button className="mt-2 bg-[#fead26] text-white text-[15px] py-2 px-4 rounded">
-                  View Details
-                </button>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+    </div>
       <Luxury />
       <Testimonials />
       <section class="video-section">
