@@ -79,9 +79,12 @@ const Home = () => {
             OUR <span className="text-black">SERVICES</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {allProperty.map(
-              (service, index) => (
-                // service.resourcetype === "OUR SERVICES PROPERTIS" && (
+            {allProperty
+              .filter(
+                (service) => service.resourcetype === "OUR SERVICES PROPERTIS"
+              )
+              .slice(0, 5)
+              .map((service, index) => (
                 <div
                   key={index}
                   className="bg-card rounded-lg overflow-hidden shadow-lg relative"
@@ -100,9 +103,7 @@ const Home = () => {
                     </Link>
                   </div>
                 </div>
-              )
-              // )
-            )}
+              ))}
           </div>
         </div>
       </div>
