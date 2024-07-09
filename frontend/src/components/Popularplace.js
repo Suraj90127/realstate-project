@@ -6,15 +6,7 @@ import img3 from "../Assets/noida-city-places-small.webp";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./component.css";
-
-// const places = [
-//   { name: "Gurgaon", image: img1 },
-//   { name: "Delhi", image: img2 },
-//   { name: "Noida", image: img3 },
-//   { name: "Shimla", image: img2 },
-//   { name: "Mumbai", image: img3 },
-//   { name: "Goa", image: img1 },
-// ];
+import { Link, useNavigate } from "react-router-dom";
 
 const settings = {
   dots: true,
@@ -51,11 +43,12 @@ const settings = {
 };
 
 const Popularplace = ({ allProperty }) => {
-  // const [allProperty, setAllProperty] = useState([]);
+  const [citis, setCitis] = useState();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   setAllProperty(properties);
-  // }, [properties]);
+  const search = () => {
+    navigate(`/products/search?city=${citis}`);
+  };
 
   console.log("object", allProperty);
   return (
@@ -66,18 +59,26 @@ const Popularplace = ({ allProperty }) => {
         </h1>
         <Slider {...settings}>
           {allProperty.map((place, index) => (
-            <div key={index} className="p-2">
-              <div className="relative h-full overflow-hidden rounded-lg shadow-lg">
+            <Link
+              to={`/project/search?city=${place.city}`}
+              key={index}
+              className="p-2"
+            >
+              <div
+                className="relative h-full overflow-hidden rounded-lg shadow-lg"
+                onClick={() => setCitis(place.city)}
+              >
                 <img
                   src={place.images[0]}
                   alt={place.name}
                   className="w-full h-full object-cover"
+                  // onClick={search}
                 />
                 <div className="absolute bottom-0 left-0 right-0 text-white font-bold text-[20px] p-2 text-center">
                   <span>{place.qut}</span> <span> {place.city}</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </Slider>
       </div>

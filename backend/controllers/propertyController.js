@@ -297,3 +297,22 @@ export const deleteProperty = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+export const getPropertiesByCity = async (req, res) => {
+  const { city } = req.params;
+
+  try {
+    const properties = await Property.find({ city: city });
+
+    if (!properties) {
+      return res
+        .status(404)
+        .json({ message: "Properties not found for this city" });
+    }
+
+    res.status(200).json(properties);
+  } catch (error) {
+    console.error("Error fetching properties by city:", error);
+    res.status(500).json({ message: error.message });
+  }
+};
