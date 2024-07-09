@@ -9,11 +9,10 @@ import DeveloperPage from "./pages/DeveloperPage";
 import BlogNews from "./pages/BlogNews";
 import Contact from "./pages/Contact";
 import BlogDetail from "./pages/BlogDetail";
-<<<<<<< HEAD
+
 import ProjectPage from "./pages/ProjectPage";
 import Dashboard from "./pages/Dashboard";
-import AddPoint from "./pages/AddPoint";
-=======
+import Admindashboard from "./pages/AdminDashboard";
 import Project from "./pages/Project";
 import PropertyDetail from "./pages/PropertyDetail";
 
@@ -29,10 +28,7 @@ function App() {
           <Route path="/blog&news" element={<BlogNews />}></Route>
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />}></Route>
-<<<<<<< HEAD
-          {/* <Route path="/dashbord" element={<Dashboard />}></Route> */}
-          <Route path="/dashbord" element={<AddPoint />}></Route>
-=======
+          <Route path="/dashbord" element={<Admindashboard />}></Route>
           <Route path="/project" element={<Project />}></Route>
           <Route path="/propertyDetail" element={<PropertyDetail />}></Route>
         </Routes>

@@ -19,22 +19,25 @@ const images = [
   ];
   const faqs = [
     {
-      question: 'What is the Signature Global Titanium Location?',
-      answer: 'Signature Global Titanium address is Sector 71, Gurgaon. Signature Global Titanium by Signature Global is located at the posh locality that is for the people who want to enjoy a luxurious life. You can find the directions to reach at Signature Global Titanium in the location map.'
+      question: "What is the Signature Global Titanium Location?",
+      answer:
+        "Signature Global Titanium address is Sector 71, Gurgaon. Signature Global Titanium by Signature Global is located at the posh locality that is for the people who want to enjoy a luxurious life. You can find the directions to reach at Signature Global Titanium in the location map.",
     },
     {
-      question: 'What is the Signature Global Titanium Starting Price?',
-      answer: 'Signature Global Titanium Price List shows that the apartments starting from 4.60 Cr* Onwards. The complete payment plan of Signature Global Titanium has listed the total cost, base price and launch price of the project. To know Signature Global Titanium price history get in touch with us.'
+      question: "What is the Signature Global Titanium Starting Price?",
+      answer:
+        "Signature Global Titanium Price List shows that the apartments starting from 4.60 Cr* Onwards. The complete payment plan of Signature Global Titanium has listed the total cost, base price and launch price of the project. To know Signature Global Titanium price history get in touch with us.",
     },
     {
-      question: 'What are Signature Global Titanium Sizes?',
-      answer: 'The project is spread over 23 Acres* of land area and the units are available in various sizes which are mentioned in Signature Global Titanium Floor plan. The layout shows that the starting size of the apartments is 2600 Sq.Ft. Onwards. Download the master plan for the better understanding of the project. Call us for the Signature Global Titanium total area and carpet area.'
+      question: "What are Signature Global Titanium Sizes?",
+      answer:
+        "The project is spread over 23 Acres* of land area and the units are available in various sizes which are mentioned in Signature Global Titanium Floor plan. The layout shows that the starting size of the apartments is 2600 Sq.Ft. Onwards. Download the master plan for the better understanding of the project. Call us for the Signature Global Titanium total area and carpet area.",
     },
     {
-      question: 'Where to Download Signature Global Titanium Photos & Videos?',
-      answer: 'Signature Global Titanium images are available here at Propzilla in the gallery section. Download the pics from the picture gallery for the more visual understanding of the project. You can also watch the Signature Global Titanium YouTube videos at Propzilla Youtube Channel.'
+      question: "Where to Download Signature Global Titanium Photos & Videos?",
+      answer:
+        "Signature Global Titanium images are available here at Propzilla in the gallery section. Download the pics from the picture gallery for the more visual understanding of the project. You can also watch the Signature Global Titanium YouTube videos at Propzilla Youtube Channel.",
     },
-    
   ];
 
 const PropertyDetail = () => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Meta from "../components/Meta";
 import BreadCrumb from "../components/BreadCrumb";
 import banner from "../Assets/AboutBanner.jpg";
@@ -16,8 +16,20 @@ import Testimonials from "../components/Testimonials";
 import Developer from "../components/Developer";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useSelector } from "react-redux";
 
 const AboutusPage = () => {
+  const { properties, successMessage, errorMessage, loading } = useSelector(
+    (state) => state.property
+  );
+
+  console.log("home2", properties);
+  const [allProperty, setAllProperty] = useState([]);
+
+  useEffect(() => {
+    setAllProperty(properties);
+  }, [properties]);
+  console.log("home", allProperty);
   const settings = {
     dots: true,
     infinite: true,
@@ -218,7 +230,7 @@ const AboutusPage = () => {
               <Testimonials />
             </div>
             <div>
-              <Developer />
+              <Developer allProperty={allProperty} />
             </div>
           </div>
         </div>

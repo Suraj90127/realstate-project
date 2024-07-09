@@ -1,11 +1,10 @@
 import React from "react";
 import bg from "../Assets/desktop-banner.jpg";
-<<<<<<< HEAD
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-=======
+
 import "./Home.css";
->>>>>>> 1fe5676cbd0cdcff9b8f7a54d389a70c3a0ac274
 
 const Contact = () => {
   return (

@@ -17,10 +17,10 @@ const router = express.Router();
 const upload = multer({ dest: "uploads/" });
 
 router.post("/", createProperty);
-router.put("/:id/highlight", addHighlightPoint);
-router.put("/:id/locationadvantage", addLocationAdvantagePoint);
-router.put("/:id/question", addQuestion);
-router.put("/:id/aboutdeveloper", addAboutDeveloper);
+router.put("/highlight/:id", addHighlightPoint);
+router.put("/locationadvantage/:id", addLocationAdvantagePoint);
+router.put("/question/:id", addQuestion);
+router.put("/aboutdeveloper/:id", addAboutDeveloper);
 // Configure multer for file uploads
 
 // router.post('/properties/:propertyId/aboutdeveloper', upload.single('image'), addAboutDeveloper);

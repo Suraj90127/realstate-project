@@ -50,7 +50,6 @@ const Dashboard = () => {
       ...state,
       [e.target.name]: e.target.value,
     });
-    console.log("ddddddd", e.target.value);
   };
 
   const imageHandle = (e, setImageState, setImageShowState) => {

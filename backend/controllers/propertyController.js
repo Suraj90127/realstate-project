@@ -92,14 +92,26 @@ export const createProperty = async (req, res) => {
 
 // controllers/propertyController.js
 
+// controllers/propertyController.js
+
 export const addHighlightPoint = async (req, res) => {
+  const { id } = req.params;
+  const { highlightspoint } = req.body;
+  console.log("Highlight point received:", highlightspoint);
+
   try {
-    const { id } = req.params;
-    const { highlightspoint } = req.body;
+    // if (!highlightspoint) {
+    //   return res.status(400).json({ message: "Highlight point is required" });
+    // }
 
     const property = await Property.findById(id);
     if (!property) {
       return res.status(404).json({ message: "Property not found" });
+    }
+
+    // Check if highlights property is an array
+    if (!Array.isArray(property.highlights)) {
+      property.highlights = [];
     }
 
     property.highlights.push({ highlightspoint });
@@ -107,7 +119,8 @@ export const addHighlightPoint = async (req, res) => {
 
     res.status(200).json(property);
   } catch (error) {
-    res.status(500).json({ messagennn: error.message });
+    console.error("Error adding highlight point:", error);
+    res.status(500).json({ message: error.message });
   }
 };
 
