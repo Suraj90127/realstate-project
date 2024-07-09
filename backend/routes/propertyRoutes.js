@@ -9,6 +9,7 @@ import {
   getPropertyById,
   updateProperty,
   deleteProperty,
+  getPropertiesByCity,
 } from "../controllers/propertyController.js";
 import multer from "multer";
 // import formidable from "express-formidable";
@@ -27,6 +28,7 @@ router.put("/aboutdeveloper/:id", addAboutDeveloper);
 
 router.get("/get-properties", getProperties);
 router.get("/get-properties/:id", getPropertyById);
+router.get("/properties_by_city/:city", getPropertiesByCity);
 router.put("/update/:id", updateProperty);
 router.delete("/delete/:id", deleteProperty);
 

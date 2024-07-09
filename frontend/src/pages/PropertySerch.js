@@ -11,59 +11,31 @@ import img1 from "../Assets/signature-global-titanium.webp";
 import logo from "../Assets/signature-global-titanium-logo.png";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchProperties,
-  clearMessages,
-} from "../store/reducer/propertyReducer";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const properties1 = [
-  {
-    id: 1,
-    title: "Signature Global Titanium SPR",
-    location: "Sector 71, Gurgaon",
-    apartments: "3.5 & 4.5 BHK",
-    area: "2600 Sq.Ft.",
-    price: "₹ 4.60 Cr* Onwards",
-    reraId: "RC/REP/HARERA/GGM/",
-    possessionDate: "Feb, 2029",
-    status: "New Launch",
-    imageUrl: img1, // Replace with actual image URL
-    logoUrl: logo, // Replace with actual logo URL
-  },
-  {
-    id: 2,
-    title: "Smart World The Edition",
-    location: "Sector 66, Golf Course Ext. Road, Gurgaon",
-    apartments: "3.5 & 4.5 BHK",
-    area: "2945 Sq. Ft.",
-    price: "₹ 6.15 Cr* Onwards",
-    reraId: "GGM/756/488/2023/100",
-    possessionDate: "Feb, 2031",
-    status: "New Launch",
-    imageUrl: img1,
-    logoUrl: logo,
-  },
-];
-
-const Project = () => {
-  const dispatch = useDispatch();
+const PropertySerch = () => {
   const { properties, successMessage, errorMessage, loading } = useSelector(
     (state) => state.property
   );
 
+  console.log("project", properties);
   const [allProperty, setAllProperty] = useState([]);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const city = searchParams.get("city");
 
-  useEffect(() => {
-    dispatch(fetchProperties());
-  }, [dispatch]);
+  const filteredProperties = properties.filter(
+    (property) => property.city === city
+  );
+
+  console.log("filteredProperties", filteredProperties);
 
   useEffect(() => {
     setAllProperty(properties);
   }, [properties]);
-
   console.log("home", allProperty);
+
   return (
     <div className="project">
       <Navbar />
@@ -74,7 +46,7 @@ const Project = () => {
         </h1>
       </div>
 
-      {properties.map((property) => (
+      {filteredProperties.map((property) => (
         <div
           key={property.id}
           className="flex flex-wrap border border-gray-300 rounded-lg overflow-hidden mb-4 w-[90%] mx-auto my-5"
@@ -95,12 +67,12 @@ const Project = () => {
                 <p>{property.location}</p>
               </div>
               {/* <div className="h-[80px] w-[200px]">
-                <img
-                  src={property.logoUrl}
-                  alt="logo"
-                  className="object-cover"
-                />
-              </div> */}
+            <img
+              src={property.logoUrl}
+              alt="logo"
+              className="object-cover"
+            />
+          </div> */}
             </div>
             <div className="flex flex-wrap gap-4 p-2">
               <p className="flex items-center gap-2">
@@ -151,4 +123,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default PropertySerch;

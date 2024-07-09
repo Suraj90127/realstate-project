@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import bg from "../Assets/desktop-banner.jpg";
 import Luxury from "../components/Luxury";
@@ -7,6 +7,11 @@ import Developer from "../components/Developer";
 import logo from "../Assets/suncity-logo.webp";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProperties,
+  clearMessages,
+} from "../store/reducer/propertyReducer";
 
 const cities = [
   "All",
@@ -43,12 +48,32 @@ const developers = [
   { name: "Gulshan", city: "Noida", image: "link-to-gulshan-image.jpg" },
 ];
 const DeveloperPage = () => {
+  const dispatch = useDispatch();
   const [selectedCity, setSelectedCity] = useState("All");
+  const { properties, successMessage, errorMessage, loading } = useSelector(
+    (state) => state.property
+  );
+
+  const [allProperty, setAllProperty] = useState([]);
+
+  useEffect(() => {
+    dispatch(fetchProperties());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setAllProperty(properties);
+  }, [properties]);
+
+  console.log("home", allProperty);
+  // console.log("home", allProperty);
 
   const filteredDevelopers =
     selectedCity === "All"
-      ? developers
-      : developers.filter((developer) => developer.city === selectedCity);
+      ? allProperty
+      : allProperty.filter((developer) => developer.city === selectedCity);
+
+  console.log("filteredDevelopers", filteredDevelopers);
+
   return (
     <div>
       <Navbar />
@@ -82,21 +107,25 @@ const DeveloperPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filteredDevelopers.map((developer, index) => (
               <div key={index} className="p-4 border rounded-lg shadow-lg">
-                <img
-                  src={developer.image}
-                  alt={developer.name}
-                  className="w-full h-32 sm:h-40 object-contain mb-4"
-                />
-                <div className="text-center text-lg font-bold">
-                  {developer.name}
-                </div>
+                {developer.aboutdevelor.map((item) => (
+                  <div>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-32 sm:h-40 object-contain mb-4"
+                    />
+                    {/* <div className="text-center text-lg font-bold">
+                      {item.name}
+                    </div> */}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
         </div>
         <Luxury />
         <Testimonials />
-        <Developer />
+        <Developer allProperty={allProperty} />
       </div>
       <Footer />
     </div>

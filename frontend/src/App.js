@@ -15,6 +15,7 @@ import Dashboard from "./pages/Dashboard";
 import Admindashboard from "./pages/AdminDashboard";
 import Project from "./pages/Project";
 import PropertyDetail from "./pages/PropertyDetail";
+import PropertySerch from "./pages/PropertySerch";
 
 function App() {
   return (
@@ -23,13 +24,14 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/about-us" element={<AboutusPage />}></Route>
-          <Route path="/project" element={<ProjectPage />}></Route>
+          {/* <Route path="/project" element={<ProjectPage />}></Route> */}
           <Route path="/developer" element={<DeveloperPage />}></Route>
           <Route path="/blog&news" element={<BlogNews />}></Route>
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/dashbord" element={<Admindashboard />}></Route>
           <Route path="/project" element={<Project />}></Route>
+          <Route path="/project/search?" element={<PropertySerch />}></Route>
           <Route path="/propertyDetail" element={<PropertyDetail />}></Route>
         </Routes>
       </div>

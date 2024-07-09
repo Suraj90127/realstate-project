@@ -14,19 +14,28 @@ import Popularplace from "../components/Popularplace";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProperties,
+  clearMessages,
+} from "../store/reducer/propertyReducer";
 
 const Home = () => {
+  const dispatch = useDispatch();
   const { properties, successMessage, errorMessage, loading } = useSelector(
     (state) => state.property
   );
 
-  console.log("home2", properties);
   const [allProperty, setAllProperty] = useState([]);
+
+  useEffect(() => {
+    dispatch(fetchProperties());
+  }, [dispatch]);
 
   useEffect(() => {
     setAllProperty(properties);
   }, [properties]);
+
   console.log("home", allProperty);
 
   return (
