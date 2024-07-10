@@ -19,11 +19,14 @@ const Developer = ({ allProperty }) => {
                     {d.aboutdevelor && d.aboutdevelor.length > 0 && (
                       <div>
                         {d.aboutdevelor.map((data, j) => (
-                          <div key={j} className="my-2">
+                          <div
+                            key={j}
+                            className="my-2 border-2 px-10 py-5 items-center"
+                          >
                             <img
                               src={data.image}
                               alt="Developer logo"
-                              className="h-auto w-[300px] border border-border rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                              className="h-[50x] w-[100px] items-center flex justify-center border-border rounded-lg "
                             />
                           </div>
                         ))}

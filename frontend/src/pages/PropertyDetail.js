@@ -138,15 +138,18 @@ const PropertyDetail = () => {
             <div className="max-w-6xl  p-4">
               <div className="container mx-auto px-2">
                 <Slider {...settings}>
-                  {pro.images.map((image, index) => (
-                    <div key={index} className="p-2 h-[400px] w-[100%]">
-                      <img
-                        src={image}
-                        alt={`Slide ${index + 1}`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  ))}
+                  {pro.images.map(
+                    (image, index) =>
+                      index < 3 && (
+                        <div key={index} className="p-2 h-[400px] w-[100%]">
+                          <img
+                            src={pro.images[index + 2]}
+                            alt={`Slide ${index + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      )
+                  )}
                 </Slider>
               </div>
 
