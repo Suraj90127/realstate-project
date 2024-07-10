@@ -96,7 +96,7 @@ const Popularplace = ({ allProperty }) => {
                 <div className="lg:h-[350px] sm:h-[400px] md:h-[500px] w-full overflow-hidden rounded-lg shadow-lg">
                   <div className="absolute bg-gradient-to-b from-[#ffffff00] to-[black] hover:bg-[#feaf26d7] h-full w-full"></div>
                   <img
-                    src={place.images[1]}
+                    src={place.images[0]}
                     alt={place.city}
                     className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                   />
