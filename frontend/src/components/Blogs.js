@@ -7,6 +7,9 @@ import {
   FaInstagramSquare,
 } from "react-icons/fa";
 import "./component.css";
+import img1 from "../Assets/modern-balcony-blog.webp"
+import img2 from "../Assets/real-estate-trends-post-covid.webp"
+import img3 from "../Assets/best-places-gurgaon-family.webp"
 
 const Blogs = () => {
   const dataArray = [
@@ -16,7 +19,7 @@ const Blogs = () => {
       title: "15 Modern Balcony Decoration Ideas for Your Home in India",
       content:
         "Discover the latest trends in balcony decoration and get inspired to transform your space.",
-      image: "https://placehold.co/600x400",
+      image: img1,
     },
     {
       id: 2,
@@ -24,7 +27,7 @@ const Blogs = () => {
       title: "Real Estate Trends Post Covid",
       content:
         "Explore the changing landscape of real estate post-Covid and its impact on the market.",
-      image: "https://placehold.co/600x400",
+      image: img2,
     },
     {
       id: 3,
@@ -32,7 +35,7 @@ const Blogs = () => {
       title: "Best Places To Live In Gurgaon With Family",
       content:
         "Discover the top family-friendly neighborhoods in Gurgaon for a comfortable living experience.",
-      image: "https://placehold.co/600x400",
+      image: img3,
     },
   ];
 

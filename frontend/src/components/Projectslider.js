@@ -5,6 +5,8 @@ import "./component.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { IoLocationSharp } from "react-icons/io5";
+import { FaIndianRupeeSign } from "react-icons/fa6";
 
 const Projectslider = ({ allProperty }) => {
   const settings = {
@@ -47,7 +49,7 @@ const Projectslider = ({ allProperty }) => {
             .map((slide, index) => (
               <div key={index} className="slider-item h-[500px] w-[400px]">
                 <div
-                  className="slider-item-image h-full w-full object-cover relative"
+                  className="slider-item-image h-full w-full object-cover relative rounded-md"
                   style={{
                     backgroundImage: `url(${slide.images[1]})`,
                     // Adjust height as needed
@@ -57,8 +59,9 @@ const Projectslider = ({ allProperty }) => {
                 >
                   <div className="slider-item-content gap-1 absolute w-full bottom-0 p-5 text-white bg-[#00000096]">
                     <h3 className="text-2xl font-bold">{slide.name}</h3>
-                    <p className="text-xl my-2">{slide.location}</p>
-                    <p className="text-md font-semibold">{slide.price}</p>
+                    <p className="text-xl flex gap-2 items-center my-2"><IoLocationSharp />
+{slide.location}</p>
+                    <p className="text-md gap-2 font-semibold flex items-center"><FaIndianRupeeSign />{slide.price}</p>
                     <Link to={`/propertyDetail?nameslug=${slide.nameslug}`}>
                       <button className="bg-[#fead26] text-white px-6 py-3 my-2 rounded-[4px]">
                         View Detail
