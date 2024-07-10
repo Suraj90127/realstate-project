@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import bg from "../Assets/desktop-banner.jpg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProperties,
+  clearMessages,
+} from "../store/reducer/propertyReducer";
 
 const properties = [
   {
@@ -71,7 +77,29 @@ const properties = [
     area: "2548 Sq. Ft.* Onwards",
   },
 ];
+
 const Commercial = () => {
+  const dispatch = useDispatch();
+  const { properties } = useSelector((state) => state.property);
+
+  const [allProperty, setAllProperty] = useState([]);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const service = searchParams.get("service");
+
+  const filteredProperties = properties.filter(
+    (property) => property.service === service
+  );
+
+  useEffect(() => {
+    dispatch(fetchProperties());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setAllProperty(properties);
+  }, [properties]);
+  console.log("home", allProperty);
+
   return (
     <div>
       <Navbar />
@@ -82,48 +110,48 @@ const Commercial = () => {
         </h1>
       </div>
       <div className="flex flex-wrap justify-center gap-5 p-4">
-        <div className="w-[80%] border-2 p-3">
+        <div className="w-[80%] my-10 bg-yellow-100 shadow-2xl p-3">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad at
-            eligendi ex debitis, tempore vero sint molestias voluptates numquam.
-            Ipsam voluptatum assumenda, non voluptas illo ipsa illum excepturi
-            quidem obcaecati porro neque beatae hic reiciendis velit accusantium
-            at voluptatibus ab? Porro unde a dolorum? Dolore deleniti quibusdam
-            iste quo fugiat cupiditate. Incidunt, quae sunt dolores laborum
-            porro accusamus nostrum ratione nulla quaerat! Dignissimos, ullam?
-            Deserunt iure impedit totam sapiente nesciunt. Eveniet perspiciatis
-            doloremque vitae ipsa quae sed nihil, veritatis magnam laboriosam
-            totam obcaecati earum impedit omnis doloribus nobis cupiditate unde
-            exercitationem? Accusantium, recusandae. Nisi, unde reiciendis quia
-            explicabo totam facere.
+            A commercial property is a building or space that is used mainly for
+            the purposes of conducting business or for the conduct of other
+            commercial activities. There are many types of commercial real
+            estate, including office buildings, retail outlets, warehouses,
+            industrial buildings, and other types of commercial real estate.
+            Commercial properties provide businesses with space to operate and
+            generate revenue.
+          </p>
+          <p className="mt-5">
+            There are a number of commercial properties available for sale in
+            India listed below. It includes all new launch, pre launch, under
+            construction, premium, under construction commercial property.
           </p>
         </div>
-        {properties.map((property, index) => (
+        {filteredProperties.map((property, index) => (
           <div
             key={index}
             className="w-full max-w-sm md:max-w-md lg:w-[25%] bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden relative"
           >
             <img
               className="w-full h-60 object-cover"
-              src={property.imgSrc}
-              alt={property.altText}
+              src={property.images[0]}
+              alt={property.name}
             />
             <div className="p-4">
               <span className="inline-block bg-accent text-accent-foreground px-2 py-1 rounded-full text-xs font-semibold mb-2">
-                {property.status}
+                {property.launch}
               </span>
-              <h2 className="text-lg font-bold mb-2">{property.title}</h2>
+              <h2 className="text-lg font-bold mb-2">{property.name}</h2>
               <p className="text-muted-foreground text-sm mb-2">
                 <i className="fas fa-map-marker-alt"></i> {property.location}
               </p>
               <p className="text-muted-foreground text-sm mb-2">
-                <i className="fas fa-building"></i> {property.type}
+                <i className="fas fa-building"></i> {property.apartments}
               </p>
               <p className="text-muted-foreground text-sm mb-2">
                 <i className="fas fa-bed"></i> {property.bhk}
               </p>
               <p className="text-muted-foreground text-sm mb-2">
-                <i className="fas fa-rupee-sign"></i> {property.price}
+                <i className="fas fa-rupee-sign"></i> {property.price} Onwards
               </p>
               <p className="text-muted-foreground text-sm mb-4">
                 <i className="fas fa-ruler-combined"></i> {property.area}
@@ -132,9 +160,11 @@ const Commercial = () => {
                 <button className="bg-[#fead26] text-white px-4 py-2 rounded-lg">
                   Enquire Now
                 </button>
-                <button className="text-[#fead26] border border-[#fead26] bg-white px-4 py-2 rounded-lg hover:bg-secondary/80">
-                  More Details
-                </button>
+                <Link to={`/propertyDetail?nameslug=${property.nameslug}`}>
+                  <button className="hover:text-[#fead26] border border-[#fead26] bg-[#fead26] text-white hover:bg-transparent px-4 py-2 rounded-lg hover:bg-secondary/80">
+                    More Details
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

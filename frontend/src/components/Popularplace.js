@@ -48,39 +48,65 @@ const Popularplace = ({ allProperty }) => {
 
   return (
     <div className="bg-[#f8f8f8]">
-      <div className="container mx-auto px-4 py-6">
+      <div className="containe w-[90%] mx-auto px-4 py-6">
         <h1 className="text-4xl font-bold text-center mb-8">
           MOST POPULAR <span className="text-[#fead26]">PLACES</span>
         </h1>
 
         {/* Top Row */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          {topRowImages.map((place, index) => (
-            <div key={index}>
-              <img
-                src={place.images}
-                alt={place.city}
-                className="w-full h-auto rounded-lg shadow-lg cursor-pointer"
-                onClick={() => setCitis(place.city)}
-              />
-            </div>
-          ))}
+        <div className="grid grid-cols-12 gap-4 mb-8">
+          {allProperty.map(
+            (place, index) =>
+              index < 3 && (
+                <Link
+                  to={`/project/search?city=${place.city}`}
+                  key={index}
+                  className={`relative ${
+                    index === 0 ? "col-span-6" : "col-span-3"
+                  }`}
+                >
+                  <img
+                    className={`w-full h-[23rem] rounded-lg shadow-lg cursor-pointer text-white`}
+                    src={place.images[0]}
+                    alt={place.city}
+                    onClick={() => setCitis(place.city)}
+                  />
+                  <div className="absolute bottom-10 left-[35%]  text-white">
+                    <p className="text-xl font-semibold flex justify-center">
+                      {place.city}
+                    </p>
+                    <p>
+                      <span>{place.qut} + Property</span>{" "}
+                    </p>
+                  </div>
+                </Link>
+              )
+          )}
         </div>
 
         {/* Bottom Row Slider */}
         <Slider {...settings}>
-          {bottomRowImages.map((place, index) => (
-            <Link to={`/project/search?city=${place.city}`} key={index} className="p-2">
+          {allProperty.map((place, index) => (
+            <Link
+              to={`/project/search?city=${place.city}`}
+              key={index}
+              className="p-2"
+            >
               <div className="relative">
-                <div className="h-[300px] sm:h-[400px] md:h-[500px] w-full overflow-hidden rounded-lg shadow-lg">
+                <div className="lg:h-[350px] sm:h-[400px] md:h-[500px] w-full overflow-hidden rounded-lg shadow-lg">
                   <div className="absolute bg-gradient-to-b from-[#ffffff00] to-[black] hover:bg-[#feaf26d7] h-full w-full"></div>
                   <img
-                    src={place.images} 
+                    src={place.images[1]}
                     alt={place.city}
                     className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 text-white font-bold sm:text-[18px] md:text-[20px] lg-text-[24px] p-2 text-center bg-opacity-50">
-                    <span>{place.qut}</span> <span> {place.city}</span> {/* Assuming 'qut' is the property for 'quote' */}
+                  <div className="absolute bottom-10 left-[35%]  text-white">
+                    <p className="text-xl font-semibold flex justify-center">
+                      {place.city}
+                    </p>
+                    <p>
+                      <span>{place.qut} + Property</span>{" "}
+                    </p>
                   </div>
                 </div>
               </div>

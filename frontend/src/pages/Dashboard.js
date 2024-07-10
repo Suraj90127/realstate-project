@@ -278,7 +278,7 @@ const Dashboard = () => {
             </div>
             <div className="flex flex-col">
               <label htmlFor="city" className="text-gray-300 my-2">
-                Launch Time
+                Status
               </label>
               <input
                 id="launch"

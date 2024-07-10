@@ -16,6 +16,7 @@ import {
   clearMessages,
 } from "../store/reducer/propertyReducer";
 import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
 
 // const images = [
 //   "https://via.placeholder.com/600x400?text=Image+1",
@@ -93,7 +94,40 @@ const PropertyDetail = () => {
     setAllProperty(properties);
   }, [properties]);
 
-  console.log("details", allProperty);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/contect",
+        formData
+      );
+      console.log("Form data submitted successfully:", response.data);
+      // Optionally clear the form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form data:", error.message);
+    }
+  };
 
   return (
     <div>
@@ -484,16 +518,24 @@ const PropertyDetail = () => {
 
           <div className="max-w-6xl  p-4">
             <div className=" p-4 bg-white h-[600px] rounded-lg shadow-md mt-4">
-              <div className="text-center mb-4">
-                <h1 className="text-3xl font-bold text-[#fead26]">
-                  Titanium <span className="text-primary">SPR</span>
-                </h1>
-                <p className="text-muted-foreground"> Sector 71, Gurgaon</p>
-              </div>
-              <form>
+              {filteredProperties.map((pro) => (
+                <div className="text-center mb-4">
+                  <h1 className="text-3xl font-bold text-[#fead26]">
+                    Titanium <span className="text-primary">SPR</span>
+                  </h1>
+                  <p className="text-muted-foreground">
+                    {" "}
+                    <span>{pro.location}</span>, <span>{pro.city}</span>{" "}
+                  </p>
+                </div>
+              ))}
+              <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     placeholder="Full Name"
                     className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
@@ -501,6 +543,9 @@ const PropertyDetail = () => {
                 <div className="mb-4">
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                     placeholder="Email ID"
                     className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
@@ -511,12 +556,18 @@ const PropertyDetail = () => {
                   </select>
                   <input
                     type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     placeholder="Mobile"
                     className="w-2/3 p-2 border border-border rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary"
                   />
                 </div>
                 <div className="mb-4">
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     placeholder="Message"
                     className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                   ></textarea>
@@ -531,7 +582,6 @@ const PropertyDetail = () => {
                   </label>
                 </div>
                 <button className="w-full bg-[#fead26] text-white py-2 rounded-md">
-                  {" "}
                   Request a Call Back
                 </button>
               </form>

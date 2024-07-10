@@ -22,9 +22,7 @@ import {
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { properties, successMessage, errorMessage, loading } = useSelector(
-    (state) => state.property
-  );
+  const { properties } = useSelector((state) => state.property);
 
   const [allProperty, setAllProperty] = useState([]);
   const [citise, setCitise] = useState();
@@ -59,14 +57,14 @@ const Home = () => {
           OF YOUR DREAMS
         </h1>
         <div className="searchbox w-auto flex flex-wrap justify-center items-center p-5 h-auto bg-[#ffffff9f]">
-          <select className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0 focus:border-none focus:outline">
+          <select className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0 focus:outline-none focus:outline">
             <option>Location</option>
             {allProperty.map((c, i) => (
               <option key={i}>{c.city}</option>
             ))}
           </select>
           <input
-            className="h-[60px]  md:w-[600px] sm:w-[100%] text-[20px] border focus:border-none focus:outline bg-white"
+            className="h-[60px] px-5  md:w-[600px] sm:w-[100%] text-[20px] border focus:border-none focus:outline bg-white focus:outline-none"
             type="text"
             placeholder="Enter an Address here, City or Area"
             list="property-options"
@@ -116,11 +114,13 @@ const Home = () => {
                   <img
                     src={service.images[0]}
                     alt={service.service}
-                    className="w-full h-full object-cover"
+                    className="w-full h-[25rem] object-cover"
                   />
                   <div className="p-4 text-center bottom-0 w-full absolute z-10">
-                    <h3 className="text-xl font-semibold">{service.service}</h3>
-                    <Link to="/commercial">
+                    <h3 className="text-xl font-semibold text-white">
+                      {service.service}
+                    </h3>
+                    <Link to={`/commercial?service=${service.service}`}>
                       <button className="mt-2 bg-[#fead26] text-white text-[15px] py-2 px-4 rounded">
                         View Details
                       </button>

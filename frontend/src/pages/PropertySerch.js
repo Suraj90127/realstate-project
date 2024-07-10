@@ -12,9 +12,14 @@ import logo from "../Assets/signature-global-titanium-logo.png";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  fetchProperties,
+  clearMessages,
+} from "../store/reducer/propertyReducer";
 
 const PropertySerch = () => {
+  const dispatch = useDispatch();
   const { properties, successMessage, errorMessage, loading } = useSelector(
     (state) => state.property
   );
@@ -28,6 +33,10 @@ const PropertySerch = () => {
   const filteredProperties = properties.filter(
     (property) => property.city === city
   );
+
+  useEffect(() => {
+    dispatch(fetchProperties());
+  }, [dispatch]);
 
   useEffect(() => {
     setAllProperty(properties);
