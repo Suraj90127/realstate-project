@@ -139,11 +139,11 @@ const PropertyDetail = () => {
               <div className="container mx-auto px-2">
                 <Slider {...settings}>
                   {pro.images.map((image, index) => (
-                    <div key={index} className="p-2">
+                    <div key={index} className="p-2 h-[400px] w-[100%]">
                       <img
                         src={image}
                         alt={`Slide ${index + 1}`}
-                        className="w-full h-auto"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                   ))}
@@ -333,7 +333,7 @@ const PropertyDetail = () => {
                       <img
                         src={gi}
                         alt="Living room with modern furniture"
-                        className="rounded-lg"
+                        className="rounded-lg h-full w-full object-cover"
                       />
                     </div>
                   ))}
