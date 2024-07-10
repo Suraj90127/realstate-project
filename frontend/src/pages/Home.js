@@ -114,7 +114,7 @@ const Home = () => {
                   <img
                     src={service.images[0]}
                     alt={service.service}
-                    className="w-full h-[25rem] object-cover"
+                    className="w-full h-[27rem] object-cover"
                   />
                   <div className="p-4 text-center bottom-0 w-full absolute z-10">
                     <h3 className="text-xl font-semibold text-white">

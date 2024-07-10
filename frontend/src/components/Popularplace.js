@@ -90,7 +90,7 @@ const Popularplace = ({ allProperty }) => {
             <Link
               to={`/project/search?city=${place.city}`}
               key={index}
-              className="p-2"
+              className="rounded-lg"
             >
               <div className="relative">
                 <div className="lg:h-[350px] sm:h-[400px] md:h-[500px] w-full overflow-hidden rounded-lg shadow-lg">
