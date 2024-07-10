@@ -50,14 +50,14 @@ const Home = () => {
           OF YOUR DREAMS
         </h1>
         <div className="searchbox w-auto flex flex-wrap justify-center items-center p-5 h-auto bg-[#ffffff9f]">
-          <select className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0">
+          <select className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0 focus:border-none focus:outline" >
             <option>Location</option>
             {properties.map((c, i) => (
               <option>{c.city}</option>
             ))}
           </select>
           <input
-            className="h-[60px]  md:w-[600px] sm:w-[100%] text-[20px] border bg-white"
+            className="h-[60px]  md:w-[600px] sm:w-[100%] text-[20px] border focus:border-none focus:outline bg-white"
             type="text"
             placeholder="Enter an Address here, City or Area"
           />
