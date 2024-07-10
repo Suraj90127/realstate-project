@@ -29,8 +29,6 @@ const PropertySerch = () => {
     (property) => property.city === city
   );
 
-  console.log("filteredProperties", filteredProperties);
-
   useEffect(() => {
     setAllProperty(properties);
   }, [properties]);
@@ -105,7 +103,7 @@ const PropertySerch = () => {
               <button className="bg-[white] sm:h-[40px] md:h-auto text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-2 rounded-[10px]">
                 Whatsapp
               </button>
-              <Link to="/propertyDetail">
+              <Link to={`/propertyDetail?nameslug=${property.nameslug}`}>
                 <button className="bg-[#fead26] sm:h-[40px] md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1">
                   <span className="sm:hidden md:block">View</span> Detail
                 </button>

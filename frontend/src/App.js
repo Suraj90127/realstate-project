@@ -16,6 +16,7 @@ import Admindashboard from "./pages/AdminDashboard";
 import Project from "./pages/Project";
 import PropertyDetail from "./pages/PropertyDetail";
 import PropertySerch from "./pages/PropertySerch";
+import Commercial from "./pages/Commercial";
 
 function App() {
   return (
@@ -31,8 +32,9 @@ function App() {
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/dashbord" element={<Admindashboard />}></Route>
           <Route path="/project" element={<Project />}></Route>
+          <Route path="/commercial" element={<Commercial />}></Route>
           <Route path="/project/search?" element={<PropertySerch />}></Route>
-          <Route path="/propertyDetail" element={<PropertyDetail />}></Route>
+          <Route path="/propertyDetail?" element={<PropertyDetail />}></Route>
         </Routes>
       </div>
     </>

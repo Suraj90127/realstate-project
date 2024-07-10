@@ -3,6 +3,7 @@ import slider from "../Assets/embassy-boulevard-featured.webp";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 import "./component.css";
+import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -132,8 +133,18 @@ const Projectslider = ({ allProperty }) => {
                 >
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
                     <h3 className="text-xl font-bold">{slide.name}</h3>
-                    <p className="text-sm">{slide.location}</p>
-                    <p className="text-sm font-semibold">{slide.price}</p>
+                    <p className="text-lg">{slide.location}</p>
+                    <p className="text-lg font-semibold">
+                      {slide.price}* Onwards
+                    </p>
+                    <Link
+                      to={`propertyDetail?nameslug=${slide.nameslug}`}
+                      className="button"
+                    >
+                      <button className="bg-yellow-400 text-white py-2 px-5 rounded-lg">
+                        View Details
+                      </button>
+                    </Link>
                   </div>
                 </div>
               )

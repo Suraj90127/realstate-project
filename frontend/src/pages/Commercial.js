@@ -81,11 +81,27 @@ const Commercial = () => {
           COMMERCIAL PROPERTIES FOR SALE
         </h1>
       </div>
-      <div className="flex flex-wrap justify-center gap-6 p-4">
+      <div className="flex flex-wrap justify-center gap-5 p-4">
+        <div className="w-[80%] border-2 p-3">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad at
+            eligendi ex debitis, tempore vero sint molestias voluptates numquam.
+            Ipsam voluptatum assumenda, non voluptas illo ipsa illum excepturi
+            quidem obcaecati porro neque beatae hic reiciendis velit accusantium
+            at voluptatibus ab? Porro unde a dolorum? Dolore deleniti quibusdam
+            iste quo fugiat cupiditate. Incidunt, quae sunt dolores laborum
+            porro accusamus nostrum ratione nulla quaerat! Dignissimos, ullam?
+            Deserunt iure impedit totam sapiente nesciunt. Eveniet perspiciatis
+            doloremque vitae ipsa quae sed nihil, veritatis magnam laboriosam
+            totam obcaecati earum impedit omnis doloribus nobis cupiditate unde
+            exercitationem? Accusantium, recusandae. Nisi, unde reiciendis quia
+            explicabo totam facere.
+          </p>
+        </div>
         {properties.map((property, index) => (
           <div
             key={index}
-            className="w-full max-w-sm md:max-w-md lg:max-w-md bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden relative"
+            className="w-full max-w-sm md:max-w-md lg:w-[25%] bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden relative"
           >
             <img
               className="w-full h-60 object-cover"

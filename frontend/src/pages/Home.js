@@ -27,6 +27,15 @@ const Home = () => {
   );
 
   const [allProperty, setAllProperty] = useState([]);
+  const [citise, setCitise] = useState();
+  const [inputValue, setInputValue] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
+
+  const handleCityChange = (event) => {
+    setSelectedCity(event.target.value);
+  };
+
+  console.log("cites", selectedCity);
 
   useEffect(() => {
     dispatch(fetchProperties());
@@ -50,20 +59,39 @@ const Home = () => {
           OF YOUR DREAMS
         </h1>
         <div className="searchbox w-auto flex flex-wrap justify-center items-center p-5 h-auto bg-[#ffffff9f]">
-          <select className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0">
+          <select
+            className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0"
+            value={selectedCity}
+            onChange={handleCityChange}
+          >
             <option>Location</option>
-            {properties.map((c, i) => (
-              <option>{c.city}</option>
+            {allProperty.map((c, i) => (
+              <option key={i}>{c.city}</option>
             ))}
           </select>
           <input
-            className="h-[60px]  md:w-[600px] sm:w-[100%] text-[20px] border bg-white"
+            className="h-[60px] md:w-[600px] sm:w-[100%] text-[20px] border bg-white"
             type="text"
             placeholder="Enter an Address here, City or Area"
+            list="property-options"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
           />
-          <button className="h-[60px] w-[60px] bg-[#fead26] text-[white] text-[20px] flex justify-center items-center">
-            <IoSearch />
-          </button>
+          <datalist id="property-options">
+            {properties.map((property, i) => (
+              <div>
+                <option key={i} value={property.name} />
+              </div>
+            ))}
+            {properties.map((property, i) => (
+              <option key={i + properties.length} value={property.city} />
+            ))}
+          </datalist>
+          <Link to={`/project/search?name=${inputValue}&&city=${selectedCity}`}>
+            <button className="h-[60px] w-[60px] bg-[#fead26] text-[white] text-[20px] flex justify-center items-center">
+              <IoSearch />
+            </button>
+          </Link>
         </div>
       </div>
 
