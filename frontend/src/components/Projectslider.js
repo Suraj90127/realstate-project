@@ -1,9 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
-import slider from "../Assets/embassy-boulevard-featured.webp";
-import { FaAngleLeft } from "react-icons/fa";
-import { FaAngleRight } from "react-icons/fa";
+import React from "react";
+import Slider from "react-slick";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import "./component.css";
-import { Link } from "react-router-dom";
 
 const data = [
   {
@@ -34,86 +32,33 @@ const data = [
 ];
 
 const Projectslider = ({ allProperty }) => {
-  const containerRef = useRef(null);
-  const [centerSlideIndex, setCenterSlideIndex] = useState(0);
-  const breakpoint = 768;
-  const slidesPerPage = 3;
-
-  const totalSlidesCount = data.length;
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  const scrollBySlide = (amount) => {
-    containerRef.current.scrollBy({ left: amount, behavior: "smooth" });
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
-  const updateActiveDot = (centerSlideIndex) => {
-    const isMobileView = containerRef.current.offsetWidth <= breakpoint;
-    const dotsCount = isMobileView ? totalSlidesCount : totalSlidesCount - 2;
-    const slidesCount = isMobileView ? 1 : dotsCount - slidesPerPage;
-    const pageIndex = centerSlideIndex - slidesCount;
-    if (pageIndex >= 0 && pageIndex < dotsCount) {
-      setCenterSlideIndex(pageIndex);
-    }
-  };
-
-  const getCenterSlideIndex = () => {
-    const slideWidth = containerRef.current.children[0].offsetWidth;
-    const containerWidth = containerRef.current.offsetWidth;
-    return Math.round(
-      (containerRef.current.scrollLeft + Math.floor(containerWidth / 2)) /
-        slideWidth
-    );
-  };
-
-  const handlePrevClick = () => {
-    scrollBySlide(-containerRef.current.children[0].offsetWidth);
-    updateActiveDot(getCenterSlideIndex() - 1);
-  };
-
-  const handleNextClick = () => {
-    scrollBySlide(containerRef.current.children[0].offsetWidth);
-    updateActiveDot(getCenterSlideIndex() + 1);
-  };
-
-  const handleTouchStart = (event) => {
-    touchStartX = event.touches[0].clientX;
-  };
-
-  const handleTouchMove = (event) => {
-    touchEndX = event.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    let centerSlideIndex;
-    const swipeThreshold = 50;
-
-    if (touchStartX - touchEndX > swipeThreshold) {
-      centerSlideIndex = getCenterSlideIndex() + 1;
-    } else {
-      centerSlideIndex = getCenterSlideIndex() - 1;
-    }
-
-    updateActiveDot(centerSlideIndex);
-    touchStartX = 0;
-    touchEndX = 0;
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    container.addEventListener("touchstart", handleTouchStart);
-    container.addEventListener("touchmove", handleTouchMove);
-    container.addEventListener("touchend", handleTouchEnd);
-
-    return () => {
-      container.removeEventListener("touchstart", handleTouchStart);
-      container.removeEventListener("touchmove", handleTouchMove);
-      container.removeEventListener("touchend", handleTouchEnd);
-    };
-  }, []);
   return (
-    <div className="slider">
-      <div className="relative flex min-h-screen flex-col items-center justify-center bg-[#eaeaea]">
+    <div className="project-slider">
+      <div className="container mx-auto px-4 py-6">
         <h1 className="text-4xl font-bold text-center mb-8">
           FEATURED <span className="text-[#fead26]">PROJECTS</span>
         </h1>
@@ -133,49 +78,14 @@ const Projectslider = ({ allProperty }) => {
                 >
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
                     <h3 className="text-xl font-bold">{slide.name}</h3>
-                    <p className="text-lg">{slide.location}</p>
-                    <p className="text-lg font-semibold">
-                      {slide.price}* Onwards
-                    </p>
-                    <Link
-                      to={`propertyDetail?nameslug=${slide.nameslug}`}
-                      className="button"
-                    >
-                      <button className="bg-yellow-400 text-white py-2 px-5 rounded-lg">
-                        View Details
-                      </button>
-                    </Link>
+                    <p className="text-sm">{slide.location}</p>
+                    <p className="text-sm font-semibold">{slide.price}</p>
                   </div>
                 </div>
-              )
-          )}
-        </div>
-
-        <div className="pagination my-4 flex gap-2">
-          {allProperty.map((_, index) => (
-            <span
-              key={index}
-              className={`h-3 w-3 ease-out duration-300 rounded-full bg-black ${
-                index === centerSlideIndex ? "w-8" : ""
-              } ${index >= slidesPerPage ? "hidden md:block" : ""}`}
-            ></span>
+              </div>
+            </div>
           ))}
-        </div>
-
-        <div className="flex gap-5">
-          <button
-            onClick={handlePrevClick}
-            className="prev-btn bg-[#fead26] text-white p-2"
-          >
-            <FaAngleLeft />
-          </button>
-          <button
-            onClick={handleNextClick}
-            className="next-btn bg-[#fead26] text-white p-2"
-          >
-            <FaAngleRight />
-          </button>
-        </div>
+        </Slider>
       </div>
     </div>
   );

@@ -59,18 +59,14 @@ const Home = () => {
           OF YOUR DREAMS
         </h1>
         <div className="searchbox w-auto flex flex-wrap justify-center items-center p-5 h-auto bg-[#ffffff9f]">
-          <select
-            className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0"
-            value={selectedCity}
-            onChange={handleCityChange}
-          >
+          <select className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0 focus:border-none focus:outline">
             <option>Location</option>
             {allProperty.map((c, i) => (
               <option key={i}>{c.city}</option>
             ))}
           </select>
           <input
-            className="h-[60px] md:w-[600px] sm:w-[100%] text-[20px] border bg-white"
+            className="h-[60px]  md:w-[600px] sm:w-[100%] text-[20px] border focus:border-none focus:outline bg-white"
             type="text"
             placeholder="Enter an Address here, City or Area"
             list="property-options"
@@ -107,9 +103,12 @@ const Home = () => {
             OUR <span className="text-black">SERVICES</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {allProperty.map(
-              (service, index) => (
-                // service.resourcetype === "OUR SERVICES PROPERTIS" && (
+            {allProperty
+              .filter(
+                (service) => service.resourcetype === "OUR SERVICES PROPERTIS"
+              )
+              .slice(0, 5)
+              .map((service, index) => (
                 <div
                   key={index}
                   className="bg-card rounded-lg overflow-hidden shadow-lg relative"
@@ -128,9 +127,7 @@ const Home = () => {
                     </Link>
                   </div>
                 </div>
-              )
-              // )
-            )}
+              ))}
           </div>
         </div>
       </div>
