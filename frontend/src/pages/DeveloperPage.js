@@ -12,6 +12,7 @@ import {
   fetchProperties,
   clearMessages,
 } from "../store/reducer/propertyReducer";
+import { Link } from "react-router-dom";
 
 const cities = [
   "All",
@@ -104,22 +105,27 @@ const DeveloperPage = () => {
               </button>
             ))}
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filteredDevelopers.map((developer, index) => (
-              <div key={index} className="p-4 border rounded-lg shadow-lg">
-                {developer.aboutdevelor.map((item) => (
+
+          <div className="grid mx-auto sm:grid-cols-2 md:grid-cols-5 gap-3 justify-self-center w-[95%] my-10">
+            {filteredDevelopers.map((d, i) => (
+              <Link to={`/developerDetail?city=${d.city}`} key={i}>
+                {d.aboutdevelor && d.aboutdevelor.length > 0 && (
                   <div>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-32 sm:h-40 object-contain mb-4"
-                    />
-                    {/* <div className="text-center text-lg font-bold">
-                      {item.name}
-                    </div> */}
+                    {d.aboutdevelor.map((data, j) => (
+                      <div
+                        key={j}
+                        className="my-2 border w-full flex justify-center py-5"
+                      >
+                        <img
+                          src={data.image}
+                          alt="Developer logo"
+                          className="h-[70px] w-[150px] object-cover "
+                        />
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                )}
+              </Link>
             ))}
           </div>
         </div>

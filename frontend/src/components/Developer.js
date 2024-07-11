@@ -12,7 +12,7 @@ const Developer = ({ allProperty }) => {
         <div>
           <div className="relative overflow-hidden h-80">
             {/* <div className="h-full flex justify-center overflow-hidden"> */}
-            <div className="grid mx-auto sm:grid-cols-2 md:grid-cols-5 gap-3 justify-self-center w-[95%] animate-marque">
+            <div className="grid mx-auto sm:grid-cols-2 md:grid-cols-5 gap-3 justify-self-center w-[95%] animate-marquee">
               {allProperty.map((d, i) => (
                 <Link to={`/developerDetail?city=${d.city}`} key={i}>
                   {d.aboutdevelor && d.aboutdevelor.length > 0 && (
