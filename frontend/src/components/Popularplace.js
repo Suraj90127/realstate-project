@@ -54,15 +54,15 @@ const Popularplace = ({ allProperty }) => {
         </h1>
 
         {/* Top Row */}
-        <div className="grid grid-cols-12 gap-4 mb-8">
+        <div className="grid lg:grid-cols-12 gap-4 mb-8">
           {allProperty.map(
             (place, index) =>
               index < 3 && (
                 <Link
                   to={`/project/search?city=${place.city}`}
                   key={index}
-                  className={`relative ${
-                    index === 0 ? "col-span-6" : "col-span-3"
+                  className={`relative flex flex-wrap ${
+                    index === 0 ? "sm:col-span-12 md:col-span-6" : "sm:col-span-12 md:col-span-3"
                   }`}
                 >
                   <img

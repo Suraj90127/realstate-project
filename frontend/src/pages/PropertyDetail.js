@@ -11,6 +11,8 @@ import { FaInstagramSquare } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
+import { VscDebugBreakpointLog } from "react-icons/vsc";
+import { IoDocumentTextSharp } from "react-icons/io5";
 import {
   fetchProperties,
   clearMessages,
@@ -277,8 +279,8 @@ const PropertyDetail = () => {
                 </div>
               </div>
               <div className="flex justify-center mt-[20px] mb-[20px] ">
-                <button className="bg-[#fead26] text-white font-semibold h-[40px] px-3 rounded-sm">
-                  Enquire Now
+                <button className="bg-[#fead26] flex items-center gap-3 text-white font-semibold h-[40px] px-3 rounded-sm">
+                <IoDocumentTextSharp />Enquire Now
                 </button>
               </div>
 
@@ -289,14 +291,14 @@ const PropertyDetail = () => {
                 <div className="flex flex-col md:flex-row">
                   <ul className="flex-1 space-y-2 pr-4 ">
                     {pro.highlights.map((h, i) => (
-                      <li>{h.highlightspoint}</li>
+                      <li className="flex items-center gap-2"><VscDebugBreakpointLog />{h.highlightspoint}</li>
                     ))}
                   </ul>
-                  <div className="flex-1 mt-4 md:mt-0">
+                  <div className="flex-1 mt-4 md:mt-0 h-[350px]">
                     <img
                       src={pro.images[2]}
                       alt="Image of Signature Global Titanium SPR Highlights"
-                      className="rounded-lg w-full h-auto"
+                      className="rounded-lg w-full object-cover h-full"
                     />
                   </div>
                 </div>
@@ -322,8 +324,8 @@ const PropertyDetail = () => {
               </div>
 
               <div className="flex justify-center mt-[20px] mb-[20px] ">
-                <button className="bg-[#fead26] text-white font-semibold h-[40px] px-3 rounded-sm">
-                  Download Broucher
+                <button className="bg-[#fead26] flex items-center gap-3 text-white font-semibold h-[40px] px-3 rounded-sm">
+                <IoDocumentTextSharp /> Download Broucher
                 </button>
               </div>
               <div className="p-6 bg-card rounded-lg shadow-md bg-white">
@@ -401,16 +403,16 @@ const PropertyDetail = () => {
                   Location Advantage
                 </h2>
                 <div className="flex flex-col md:flex-row">
-                  <div className="flex-1 mt-4 md:mt-0">
+                  <div className="flex-1 mt-4 md:mt-0 h-[350px]">
                     <img
                       src={pro.images[0]}
                       alt="Image of Signature Global Titanium SPR Highlights"
-                      className="rounded-lg w-full h-auto"
+                      className="rounded-lg w-full h-full object-cover"
                     />
                   </div>
                   <ul className="flex-1 space-y-2 pl-4 ">
                     {pro.locationadvantage.map((item, i) => (
-                      <li>{item.locationadvantagepoint}</li>
+                      <li className="flex items-center gap-2"><VscDebugBreakpointLog />{item.locationadvantagepoint}</li>
                     ))}
                   </ul>
                 </div>
@@ -492,7 +494,7 @@ const PropertyDetail = () => {
                     <img
                       src={ad.image}
                       alt="Company Logo"
-                      className="w-24 h-24 mr-6 mb-4 md:mb-0 md:mr-12"
+                      className="w-auto h-[50px] object-cover mr-6 mb-4 md:mb-0 md:mr-12"
                     />
                     <div className="text-muted-foreground">
                       <p className="mb-4">{ad.about}</p>

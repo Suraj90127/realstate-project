@@ -1,4 +1,7 @@
 import React from "react";
+import { FaHouseDamage } from "react-icons/fa";
+import { SiWebmoney } from "react-icons/si";
+import { RiCustomerService2Fill } from "react-icons/ri";
 
 const whychoosetop = () => {
   return (
@@ -9,12 +12,8 @@ const whychoosetop = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="bg-gradient-to-t from-[#fffcf7] via-[#fff3de] to-[#ffe7bd] text-[var(--card-foreground)] p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-            <div className="flex items-center mb-4">
-              <img
-                alt="key-icon"
-                src="https://openui.fly.dev/openui/24x24.svg?text=🔑"
-                className="mr-3"
-              />
+            <div className="flex gap-3 items-center mb-4">
+            <FaHouseDamage className="text-[40px] font-bold"/>
               <h3 className="text-xl font-semibold">Easy Consultation</h3>
             </div>
             <p className="text-[var(--muted-foreground)]">
@@ -24,12 +23,8 @@ const whychoosetop = () => {
             </p>
           </div>
           <div className="bg-gradient-to-t from-[#fffcf7] via-[#fff3de] to-[#ffe7bd] text-[var(--card-foreground)] p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-            <div className="flex items-center mb-4">
-              <img
-                alt="home-icon"
-                src="https://openui.fly.dev/openui/24x24.svg?text=🏠"
-                className="mr-3"
-              />
+            <div className="flex gap-3 items-center mb-4">
+            <SiWebmoney className="text-[40px] font-bold"/>
               <h3 className="text-xl font-semibold">Financial Assistance</h3>
             </div>
             <p className="text-[var(--muted-foreground)]">
@@ -39,12 +34,8 @@ const whychoosetop = () => {
             </p>
           </div>
           <div className="bg-gradient-to-t from-[#fffcf7] via-[#fff3de] to-[#ffe7bd] text-[var(--card-foreground)] p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
-            <div className="flex items-center mb-4">
-              <img
-                alt="support-icon"
-                src="https://openui.fly.dev/openui/24x24.svg?text=👨‍💼"
-                className="mr-3"
-              />
+            <div className="flex gap-3 items-center mb-4">
+            <RiCustomerService2Fill className="text-[40px] font-bold"/>
               <h3 className="text-xl font-semibold">After Sale Assistance</h3>
             </div>
             <p className="text-[var(--muted-foreground)]">

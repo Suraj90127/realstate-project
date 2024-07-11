@@ -13,6 +13,12 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { MdOutlineWhatsapp } from "react-icons/md";
+import { MdCall } from "react-icons/md";
+import { IoInformationCircleSharp } from "react-icons/io5";
+import { PiMapPinSimpleArea } from "react-icons/pi";
+
+
 import {
   fetchProperties,
   clearMessages,
@@ -104,11 +110,11 @@ const Project = () => {
             </div>
             <div className="flex flex-wrap gap-4 p-2">
               <p className="flex items-center gap-2">
-                <FaBed />
+              <FaBuilding />
                 {property.apartments}
               </p>
-              <p className="flex items-center gap-2">{property.bhk}</p>
-              <p className="flex items-center gap-2">{property.area}</p>
+              <p className="flex items-center gap-2"><FaBed />{property.bhk}</p>
+              <p className="flex items-center gap-2"><PiMapPinSimpleArea />{property.area}</p>
               <p className="flex items-center gap-1">
                 <MdOutlineCurrencyRupee />
                 {property.price}
@@ -127,19 +133,20 @@ const Project = () => {
                 <IoMdInformationCircle />
                 Rera ID
               </h3>
-              <p>{property.reraId}</p>
+              <p>N/A</p>
             </div>
             <div className="flex border-t-2 p-2 gap-5">
-              <button className="bg-[white] sm:h-[40px] md:h-auto text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-2 rounded-[10px]">
-                Whatsapp
+              <button className="bg-[white] flex items-center gap-2 sm:h-[40px] md:h-auto text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-2 rounded-[10px]">
+              <MdOutlineWhatsapp className="text-[20px]" />
+Whatsapp
               </button>
               <Link to={`/propertyDetail?nameslug=${property.nameslug}`}>
-                <button className="bg-[#fead26] sm:h-[40px] md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1">
-                  <span className="sm:hidden md:block">View</span> Detail
+                <button className="bg-[#fead26] items-center sm:h-[40px] md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1">
+                <IoInformationCircleSharp className="text-[20px]"/><span className="sm:hidden md:block">View</span> Detail
                 </button>
               </Link>
-              <button className="bg-[#fead26] sm:h-[40px] md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1">
-                <span className="sm:hidden md:block">Get</span> Call
+              <button className="bg-[#fead26] sm:h-[40px] items-center md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1">
+              <MdCall className="text-[20px]"/><span className="sm:hidden md:block">Get</span> Call
               </button>
             </div>
           </div>
