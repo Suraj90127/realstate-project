@@ -197,9 +197,11 @@ const AddAboutDeveloper = () => {
               <label htmlFor="about" className="text-gray-300 my-2">
                 Description
               </label>
-              <input
+              <textarea
                 id="about"
                 name="about"
+                rows="4"
+                cols="50"
                 type="text"
                 className="px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-gray-300 focus:outline-none"
                 value={state.about}

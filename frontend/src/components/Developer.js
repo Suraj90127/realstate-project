@@ -9,32 +9,34 @@ const Developer = ({ allProperty }) => {
         <h2 className="text-4xl font-extrabold text-center mb-6">
           MAJOR <span className="text-[#fead26]">DEVELOPERS</span>
         </h2>
-        <Link to="/developerDetail">
+        <div>
           <div className="relative overflow-hidden h-80">
-            <div className="absolute inset-0 "></div>
-            <div className="h-full flex justify-center overflow-hidden">
-              <div className="grid sm:grid-cols-2 md:grid-cols-5 gap-3 justify-self-center w-[95%] animate-marquee">
-                {allProperty.map((d, i) => (
-                  <div key={i}>
-                    {d.aboutdevelor && d.aboutdevelor.length > 0 && (
-                      <div>
-                        {d.aboutdevelor.map((data, j) => (
-                          <div key={j} className="my-2 border">
-                            <img
-                              src={data.image}
-                              alt="Developer logo"
-                              className="h-auto w-full object-cover border border-border rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+            {/* <div className="h-full flex justify-center overflow-hidden"> */}
+            <div className="grid mx-auto sm:grid-cols-2 md:grid-cols-5 gap-3 justify-self-center w-[95%] animate-marque">
+              {allProperty.map((d, i) => (
+                <Link to={`/developerDetail?city=${d.city}`} key={i}>
+                  {d.aboutdevelor && d.aboutdevelor.length > 0 && (
+                    <div>
+                      {d.aboutdevelor.map((data, j) => (
+                        <div
+                          key={j}
+                          className="my-2 border w-full flex justify-center py-5"
+                        >
+                          <img
+                            src={data.image}
+                            alt="Developer logo"
+                            className="h-[70px] w-[150px] object-cover "
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </Link>
+              ))}
             </div>
+            {/* </div> */}
           </div>
-        </Link>
+        </div>
       </div>
     </div>
   );

@@ -36,7 +36,7 @@ function App() {
           <Route path="/commercial?" element={<Commercial />}></Route>
           <Route path="/project/search?" element={<PropertySerch />}></Route>
           <Route path="/propertyDetail?" element={<PropertyDetail />}></Route>
-          <Route path="/developerDetail" element={<DeveloperDetail />}></Route>
+          <Route path="/developerDetail?" element={<DeveloperDetail />}></Route>
         </Routes>
       </div>
     </>
