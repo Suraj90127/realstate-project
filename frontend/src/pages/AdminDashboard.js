@@ -7,8 +7,8 @@ import AddAboutDeveloper from "../components/AddAboutDeveloper";
 import Dashboard from "./Dashboard";
 
 const AddPoint = () => {
-  const [currentView, setCurrentView] = useState("dashboard"); // Set initial state to "dashboard"
-  const [sidebarOpen, setSidebarOpen] = useState(false); // State to manage sidebar visibility
+  const [currentView, setCurrentView] = useState("dashboard");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleButtonClick = (view) => {
     setCurrentView(view);
@@ -21,15 +21,12 @@ const AddPoint = () => {
 
   return (
     <div className="flex bg-gray-800 h-screen overflow-hidden">
-      {/* Menu button for mobile view */}
       <button
         className="block lg:hidden p-4 text-white absolute top-0 right-0 z-20"
         onClick={toggleSidebar}
       >
         {sidebarOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
       </button>
-
-      {/* Left side: Buttons */}
       <div
         className={`lg:w-1/4 bg-[#283046] p-4 shadow-2xl fixed lg:static top-0 left-0 h-full z-10 transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
@@ -67,7 +64,6 @@ const AddPoint = () => {
         </button>
       </div>
 
-      {/* Right side: Input fields and component based on button click */}
       <div className="w-full lg:w-3/4 overflow-y-auto ml-auto">
         {currentView === "dashboard" && <Dashboard />}
         {currentView === "highlight" && <AddHighlightPoint />}
