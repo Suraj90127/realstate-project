@@ -33,7 +33,7 @@ const Projectslider = ({ allProperty }) => {
 
   return (
     <div className="project-slider">
-      <div className="container mx-auto px-4 py-6">
+      <div className="container w-[90%] mx-auto px-4 py-6">
         <h1 className="text-4xl font-bold text-center mb-8">
           FEATURED <span className="text-[#fead26]">PROJECTS</span>
         </h1>
@@ -45,9 +45,12 @@ const Projectslider = ({ allProperty }) => {
             )
             .slice(0, 5)
             .map((slide, index) => (
-              <div key={index} className="slider-item h-[500px] w-[400px]">
+              <div
+                key={index}
+                className="slider-item h-[500px] w-[400px] rounded-lg"
+              >
                 <div
-                  className="slider-item-image h-full w-full object-cover relative"
+                  className="slider-item-image h-full w-full object-cover relative rounded-lg overflow-hidden"
                   style={{
                     backgroundImage: `url(${slide.images[1]})`,
                     // Adjust height as needed
