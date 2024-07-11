@@ -288,7 +288,7 @@ const PropertyDetail = () => {
                     <h2 className="text-2xl font-bold mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Signature Global Titanium SPR Highlights
                     </h2>
-                    <div className="flex flex-col md:flex-row">
+                    <div className="flex flex-col p-4 justify-center md:items-center md:flex-row">
                       <ul className="flex-1 space-y-2 pr-4 ">
                         {pro.highlights.map((h, i) => (
                           <li className="flex items-center gap-2">
