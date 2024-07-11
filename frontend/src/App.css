@@ -102,9 +102,12 @@ nav .navbar {
   align-items: center;
   justify-content: space-between;
   padding: 0 50px;
+  transition: background-color 0.3s ease;
 }
 
-
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); /* Change this to your desired color */
+}
 .navbar .logo a {
   font-size: 30px;
   color: #fff;

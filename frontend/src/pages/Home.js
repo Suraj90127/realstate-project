@@ -50,21 +50,21 @@ const Home = () => {
       <Navbar />
       <div className="header">
         <img src={bg} alt="" />
-        <p className="sm:text-[40px] md:text-[60px] text-white text-center">
+        <p className="sm:text-[20px] md:text-[60px] text-white text-center">
           FIND THE PROPERTY
         </p>
-        <h1 className="sm:text-[50px] md:text-[60px] text-[#fead26] font-bold text-center">
+        <h1 className="sm:text-[30px] md:text-[60px] text-[#fead26] font-bold text-center">
           OF YOUR DREAMS
         </h1>
-        <div className="searchbox w-auto flex flex-wrap justify-center items-center p-5 h-auto bg-[#ffffff9f]">
-          <select className="h-[60px] text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0 focus:outline-none focus:outline">
+        <div className="searchbox w-auto flex flex-wrap justify-center items-center sm:gap-3 md:gap-0 sm:p-2 md:p-5 h-auto bg-[#ffffff9f]">
+          <select className="md:h-[60px] sm:h-[40px] sm:text-[15px] md:text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0 focus:outline-none focus:outline">
             <option>Location</option>
             {allProperty.map((c, i) => (
               <option key={i}>{c.city}</option>
             ))}
           </select>
           <input
-            className="h-[60px] px-5  md:w-[600px] sm:w-[100%] text-[20px] border focus:border-none focus:outline bg-white focus:outline-none"
+            className="md:h-[60px] sm:h-[40px] px-5  md:w-[600px] sm:w-[100%] sm:text-[15px] md:text-[20px] border focus:border-none focus:outline bg-white focus:outline-none"
             type="text"
             placeholder="Enter an Address here, City or Area"
             list="property-options"
@@ -82,7 +82,7 @@ const Home = () => {
             ))}
           </datalist>
           <Link to={`/project/search?name=${inputValue}&&city=${selectedCity}`}>
-            <button className="h-[60px] w-[60px] bg-[#fead26] text-[white] text-[20px] flex justify-center items-center">
+            <button className="md:h-[60px] w-[60px] sm:h-[40px] bg-[#fead26] text-[white] text-[20px] flex justify-center items-center">
               <IoSearch />
             </button>
           </Link>

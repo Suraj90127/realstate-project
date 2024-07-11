@@ -288,7 +288,7 @@ const PropertyDetail = () => {
                 <h2 className="text-2xl font-bold mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                   Signature Global Titanium SPR Highlights
                 </h2>
-                <div className="flex flex-col md:flex-row">
+                <div className="flex flex-col p-4 justify-center md:items-center md:flex-row">
                   <ul className="flex-1 space-y-2 pr-4 ">
                     {pro.highlights.map((h, i) => (
                       <li className="flex items-center gap-2"><VscDebugBreakpointLog />{h.highlightspoint}</li>
@@ -402,17 +402,17 @@ const PropertyDetail = () => {
                 <h2 className="text-2xl font-bold mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                   Location Advantage
                 </h2>
-                <div className="flex flex-col md:flex-row">
-                  <div className="flex-1 mt-4 md:mt-0 h-[350px]">
+                <div className="flex flex-col p-4 justify-center md:items-center md:flex-row">
+                  <div className="flex-1 mt-4 md:mt-0 h-[350px] p-6">
                     <img
                       src={pro.images[0]}
                       alt="Image of Signature Global Titanium SPR Highlights"
                       className="rounded-lg w-full h-full object-cover"
                     />
                   </div>
-                  <ul className="flex-1 space-y-2 pl-4 ">
+                  <ul className="flex-1 space-y-2 ">
                     {pro.locationadvantage.map((item, i) => (
-                      <li className="flex items-center gap-2"><VscDebugBreakpointLog />{item.locationadvantagepoint}</li>
+                      <li className="flex items-center gap-2 text[1.3rem]"><VscDebugBreakpointLog />{item.locationadvantagepoint}</li>
                     ))}
                   </ul>
                 </div>

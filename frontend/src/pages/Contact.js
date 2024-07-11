@@ -19,7 +19,7 @@ const Contact = () => {
         </div>
         <section className="text-gray-600 body-font relative">
           <div className="container sm:px-0  md:px-5 py-24 mx-auto flex sm:flex-wrap sm:flex-col-reverse md:flex-row md:flex-nowrap flex-wrap">
-            <div className="lg:w-2/3 md:w-1/2 sm:w-[100%] sm:mt-5 md:mt-0 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+            <div className="lg:w-1/2 md:w-1/2 sm:w-[100%] sm:mt-5 md:mt-0 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
               <iframe
                 width="100%"
                 height="100%"
@@ -56,7 +56,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
+            <div className="lg:w-1/2 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
               <h2 className="text-gray-900 text-center text-2xl mb-1 font-bold title-font">
                 GET IN TOUCH WITH US!
               </h2>

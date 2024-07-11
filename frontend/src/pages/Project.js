@@ -135,17 +135,17 @@ const Project = () => {
               </h3>
               <p>N/A</p>
             </div>
-            <div className="flex border-t-2 p-2 gap-5">
-              <button className="bg-[white] flex items-center gap-2 sm:h-[40px] md:h-auto text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-2 rounded-[10px]">
+            <div className="flex flex-wrap border-t-2 p-2 gap-5">
+              <button className="bg-[white] flex items-center text-center sm:w-[100%] md:w-[auto] gap-2 sm:h-[40px] justify-center md:h-auto text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-2 rounded-[10px]">
               <MdOutlineWhatsapp className="text-[20px]" />
 Whatsapp
               </button>
-              <Link to={`/propertyDetail?nameslug=${property.nameslug}`}>
-                <button className="bg-[#fead26] items-center sm:h-[40px] md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1">
-                <IoInformationCircleSharp className="text-[20px]"/><span className="sm:hidden md:block">View</span> Detail
+              <Link to={`/propertyDetail?nameslug=${property.nameslug}`}  className="sm:w-[100%]  md:w-auto">
+                <button className="bg-[#fead26] sm:w-[100%] sm:h-[40px] md:w-[auto] items-center md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex justify-center gap-1">
+                <IoInformationCircleSharp className="text-[20px]"/>View Detail
                 </button>
               </Link>
-              <button className="bg-[#fead26] sm:h-[40px] items-center md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex gap-1">
+              <button className="bg-[#fead26] sm:w-[100%] sm:h-[40px] md:w-[auto] items-center md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] justify-center  flex gap-1">
               <MdCall className="text-[20px]"/><span className="sm:hidden md:block">Get</span> Call
               </button>
             </div>
