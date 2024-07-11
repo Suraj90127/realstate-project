@@ -9,6 +9,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 const Navbar = () => {
   const [navOpen, setNavOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false); // State to track scroll position
   const navLinksRef = useRef(null);
   const menuIconRef = useRef(null);
 
@@ -30,16 +31,27 @@ const Navbar = () => {
     }
   };
 
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
+    window.addEventListener("scroll", handleScroll); // Add scroll event listener
 
     return () => {
       document.removeEventListener("click", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll); // Clean up the scroll event listener
     };
   }, []);
+
   return (
     <div>
-      <nav>
+      <nav className={scrolled ? "navbar scrolled" : "navbar"}> {/* Apply class based on scroll */}
         <div className="navbar">
           <i ref={menuIconRef} className="bx bx-menu" onClick={handleMenuClick}>
             <IoReorderThreeSharp />
@@ -58,7 +70,7 @@ const Navbar = () => {
               <span className="logo-name">
                 <img
                   style={{ width: "150px" }}
-                  src="/src/Assets/logo.webp"
+                  src={logo}
                   alt="Logo"
                 />
               </span>

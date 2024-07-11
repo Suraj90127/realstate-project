@@ -111,9 +111,9 @@ const PropertyDetail = () => {
   return (
     <div>
       <Navbar />
-      <div className="projectDetail bg-[#f8f8f8] mt-[70px] flex justify-center ">
+      <div className="projectDetail bg-[#f8f8f8] mt-[70px] flex w-[100%] ">
         <div
-          className="ml-20 relative w-[90%]   bg-[#f8f8f8] text-start"
+          className="ml-[5%] relative w-[90%]   bg-[#f8f8f8] text-start"
           id="home"
         >
           <BreadCrumb
@@ -122,7 +122,7 @@ const PropertyDetail = () => {
             url={"/project"}
           />
 
-          <div className="flex w-full h-screen mx-auto ">
+          <div className="flex justify-center w-full h-screen mx-auto ">
             <div className="h-full overflow-auto flex-1 no-scrollbar">
               {filteredProperties.map((pro, i) => (
                 <div className="max-w-5xl  p-4">
@@ -532,9 +532,108 @@ const PropertyDetail = () => {
                   </div>
                 </div>
               ))}
+              <div className="max-w-6xl  p-4 sm:block lg:hidden">
+              <div className=" p-4 bg-white h-[600px] rounded-lg shadow-md mt-4">
+                {filteredProperties.map((pro) => (
+                  <div className="text-center mb-4">
+                    <h1 className="text-3xl font-bold text-[#fead26]">
+                      Titanium <span className="text-primary">SPR</span>
+                    </h1>
+                    <p className="text-muted-foreground">
+                      {" "}
+                      <span>{pro.location}</span>, <span>{pro.city}</span>{" "}
+                    </p>
+                  </div>
+                ))}
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-4">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Full Name"
+                      className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email ID"
+                      className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div className="flex mb-4">
+                    <select className="w-1/3 p-2 border border-border rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
+                      <option>India (+91)</option>
+                    </select>
+                    <input
+                      type="text"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Mobile"
+                      className="w-2/3 p-2 border border-border rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <div className="mb-4">
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Message"
+                      className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                    ></textarea>
+                  </div>
+                  <div className="mb-4 flex items-start">
+                    <input type="checkbox" id="terms" className="mr-2" />
+                    <label htmlFor="terms" className="text-muted-foreground">
+                      By submitting this form I agree to{" "}
+                      <a href="#" className="text-primary underline">
+                        Terms of Use
+                      </a>
+                    </label>
+                  </div>
+                  <button className="w-full bg-[#fead26] text-white py-2 rounded-md">
+                    Request a Call Back
+                  </button>
+                </form>
+                <div className="mt-4 flex justify-center space-x-2">
+                  <div className="flex space-x-4 text-[30px] text-[#303030]">
+                    <a
+                      href="#"
+                      className="hover:underline hover:text-[#fead26]"
+                    >
+                      <FaFacebookSquare />
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:underline hover:text-[#fead26]"
+                    >
+                      <FaLinkedin />
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:underline hover:text-[#fead26]"
+                    >
+                      <FaYoutube />
+                    </a>
+                    <a
+                      href="#"
+                      className="hover:underline hover:text-[#fead26]"
+                    >
+                      <FaInstagramSquare />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
             </div>
 
-            <div className="max-w-6xl  p-4">
+            <div className="max-w-6xl  p-4 sm:hidden lg:block">
               <div className=" p-4 bg-white h-[600px] rounded-lg shadow-md mt-4">
                 {filteredProperties.map((pro) => (
                   <div className="text-center mb-4">
