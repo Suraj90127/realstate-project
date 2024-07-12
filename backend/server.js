@@ -5,10 +5,15 @@ import propertyRoutes from "./routes/propertyRoutes.js";
 import contectRoutes from "./routes/contectRoutes.js";
 import fileUpload from "express-fileupload";
 import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
 const app = express();
+
+const __fileName = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__fileName);
 
 app.use(
   cors({
@@ -16,6 +21,12 @@ app.use(
     credentials: true,
   })
 );
+
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.json(__dirname, "../frontend/build/index.html"));
+});
 
 app.use(express.json());
 app.use(fileUpload({ useTempFiles: true, tempFileDir: "/tmp/" }));

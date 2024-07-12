@@ -86,7 +86,7 @@ const Navbar = () => {
                 <Link to="/contact">CONTACT</Link>
               </li>
               <li>
-                <Link to="/dashbord" target="_blank">Admin</Link>
+                <Link to="/dashbord">Admin</Link>
               </li>
               <li>
                 <Link to="/contact" className="search-box flex">
