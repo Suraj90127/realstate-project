@@ -9,7 +9,6 @@ import DeveloperPage from "./pages/DeveloperPage";
 import BlogNews from "./pages/BlogNews";
 import Contact from "./pages/Contact";
 import BlogDetail from "./pages/BlogDetail";
-
 import ProjectPage from "./pages/ProjectPage";
 import Dashboard from "./pages/Dashboard";
 import Admindashboard from "./pages/AdminDashboard";

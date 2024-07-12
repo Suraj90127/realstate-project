@@ -106,7 +106,7 @@ nav .navbar {
 }
 
 .navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.8); /* Change this to your desired color */
+  background-color: rgb(0, 0, 0); /* Change this to your desired color */
 }
 .navbar .logo a {
   font-size: 30px;
@@ -259,7 +259,7 @@ nav .navbar .links li .sub-menu {
     top: 70px;
     left: 0;
     width: 100%;
-    background: #0000004f;
+    background: #000000;
     z-index: 999;
   }
 
@@ -347,7 +347,7 @@ nav .navbar .links li .sub-menu {
     /* Adjust the blur value as needed */
     transition: all 0.5s ease;
     z-index: 9999;
-    background-color: #00000057;
+    background-color: #000000;
   }
 
   .navbar .nav-links .sidebar-logo {
