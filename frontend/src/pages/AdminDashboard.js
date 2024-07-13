@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import AddHighlightPoint from "../components/AddHighlightPoint";
 import AddLocationAdvantagePoint from "../components/AddLocationAdvantagePoint";
@@ -18,6 +18,9 @@ const AddPoint = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className="flex bg-gray-800 h-screen overflow-hidden">

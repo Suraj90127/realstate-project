@@ -1,4 +1,4 @@
-import React from "react";
+import {useEffect} from "react";
 import bg from "../Assets/desktop-banner.jpg";
 
 import Navbar from "../components/Navbar";
@@ -7,6 +7,9 @@ import Footer from "../components/Footer";
 import "./Home.css";
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div>
       <Navbar />

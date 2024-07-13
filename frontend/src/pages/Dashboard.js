@@ -149,6 +149,9 @@ const Dashboard = () => {
       naviget("/");
     }
   }, [errorMessage, successMessage, dispatch]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className="">

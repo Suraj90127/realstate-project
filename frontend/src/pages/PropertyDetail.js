@@ -107,14 +107,17 @@ const PropertyDetail = () => {
       console.error("Error submitting form data:", error.message);
     }
   };
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
-    <div>
+    <div >
       <Navbar />
-      <div className="projectDetail bg-[#f8f8f8] mt-[70px] flex w-[100%] ">
+      <div className="projectDetail bg-[#f8f8f8] mt-[70px] flex w-[100%]">
         <div
           className="ml-[5%] relative w-[90%]   bg-[#f8f8f8] text-start"
-          id="home"
+          
         >
           <BreadCrumb
             title={propertyName}
@@ -123,7 +126,7 @@ const PropertyDetail = () => {
           />
 
           <div className="flex justify-center w-full h-screen mx-auto ">
-            <div className="h-full overflow-auto flex-1 no-scrollbar">
+            <div className="h-full overflow-auto flex-1 no-scrollbar  scroll-smooth">
               {filteredProperties.map((pro, i) => (
                 <div className="max-w-5xl  p-4">
                   <div className="container mx-auto px-2">
@@ -179,7 +182,7 @@ const PropertyDetail = () => {
                     </div>
                   </div>
 
-                  <div className="bg-white dark:bg-card-foreground p-4 rounded-lg shadow-md mt-[20px] sm:hidden md:block sticky top-0">
+                  <div className="bg-white dark:bg-card-foreground p-4 rounded-lg shadow-md mt-[20px] sm:hidden md:block sticky  top-0">
                     <div className="flex ">
                       <a
                         href="#home"
@@ -200,37 +203,37 @@ const PropertyDetail = () => {
                         Highlights
                       </a>
                       <a
-                        href="#"
+                        href="#amenities"
                         className=" font-semibold hover:text-white hover:bg-[#fead26] transition-colors duration-300 ease-in-out px-4 py-2"
                       >
                         Amenities
                       </a>
                       <a
-                        href="#"
+                        href="#gallery"
                         className="font-semibold hover:text-white hover:bg-[#fead26] transition-colors duration-300 ease-in-out px-4 py-2"
                       >
                         Gallery
                       </a>
                       <a
-                        href="#"
+                        href="#price"
                         className=" font-semibold hover:text-white hover:bg-[#fead26] transition-colors duration-300 ease-in-out px-4 py-2"
                       >
                         Price
                       </a>
                       <a
-                        href="#"
+                        href="#floor"
                         className=" font-semibold hover:text-white hover:bg-[#fead26] transition-colors duration-300 ease-in-out px-4 py-2"
                       >
                         Floor Plan
                       </a>
                       <a
-                        href="#"
+                        href="#location"
                         className=" font-semibold hover:text-white hover:bg-[#fead26] transition-colors duration-300 ease-in-out px-4 py-2"
                       >
                         Location
                       </a>
                       <a
-                        href="#"
+                        href="#faq"
                         className=" font-semibold hover:text-white hover:bg-[#fead26] transition-colors duration-300 ease-in-out px-4 py-2"
                       >
                         FAQ
@@ -240,7 +243,7 @@ const PropertyDetail = () => {
 
                   <div
                     className="bg-white text-card-foreground p-6 rounded-lg shadow-lg"
-                    id=""
+                    id="home"
                   >
                     <h2 className="text-xl font-bold mb-4 bg-[#e9e9ed] px-2 py-2 rounded-[5px]">
                       {pro.name} Overview
@@ -306,7 +309,7 @@ const PropertyDetail = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="p-4 bg-[white] text-card-foreground">
+                  <div className="p-4 bg-[white] text-card-foreground" id="amenities">
                     <h2 className="text-2xl font-bold mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Signature Global Titanium SPR Amenities
                     </h2>
@@ -326,7 +329,7 @@ const PropertyDetail = () => {
                     </div>
                   </div>
 
-                  <div className="flex justify-center mt-[20px] mb-[20px] ">
+                  <div className="flex justify-center mt-[20px] mb-[20px] " id="gallery">
                     <button className="bg-[#fead26] flex items-center gap-3 text-white font-semibold h-[40px] px-3 rounded-sm">
                       <IoDocumentTextSharp /> Download Broucher
                     </button>
@@ -347,7 +350,7 @@ const PropertyDetail = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="bg-white p-4 rounded-lg shadow-md mt-[20px]">
+                  <div className="bg-white p-4 rounded-lg shadow-md mt-[20px]" id="price">
                     <h2 className="text-lg font-bold text-card-foreground mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Signature Global Titanium SPR Price List
                     </h2>
@@ -379,7 +382,7 @@ const PropertyDetail = () => {
                       Shadule a Site Visit
                     </button>
                   </div>
-                  <div className="bg-white p-6 rounded-lg shadow-md">
+                  <div className="bg-white p-6 rounded-lg shadow-md" id="floor">
                     <h2 className="text-2xl font-bold mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Signature Global Titanium SPR Floor Plan
                     </h2>
@@ -403,7 +406,7 @@ const PropertyDetail = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="bg-white text-card-foreground p-4 rounded-lg shadow-md mx-auto my-8">
+                  <div className="bg-white text-card-foreground p-4 rounded-lg shadow-md mx-auto my-8" id="location">
                     <h2 className="text-2xl font-bold mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Location Advantage
                     </h2>
@@ -425,7 +428,7 @@ const PropertyDetail = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className=" p-2 mx-auto mt-10 bg-white">
+                  <div className=" p-2 mx-auto mt-10 bg-white" id="faq">
                     <h2 className="text-2xl font-bold mb-5 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Frequently Asked Questions
                     </h2>

@@ -36,6 +36,9 @@ const DeveloperDetail = () => {
   }, [properties]);
 
   console.log("aaaaaaa", allProperty);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div>

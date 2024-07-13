@@ -99,6 +99,7 @@ const Commercial = () => {
     setAllProperty(properties);
   }, [properties]);
   console.log("home", allProperty);
+  
 
   return (
     <div>

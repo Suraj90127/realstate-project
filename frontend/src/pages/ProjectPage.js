@@ -1,4 +1,4 @@
-import React from "react";
+import {useEffect} from "react";
 import Meta from "../components/Meta";
 import BreadCrumb from "../components/BreadCrumb";
 import banner from "../Assets/project-banner.jpg";
@@ -9,6 +9,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const ProjectPage = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="">
       <Navbar />

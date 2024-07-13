@@ -45,6 +45,9 @@ const PropertySerch = () => {
     setAllProperty(properties);
   }, [properties]);
   console.log("home", allProperty);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className="project">

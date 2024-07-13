@@ -74,6 +74,9 @@ const DeveloperPage = () => {
       : allProperty.filter((developer) => developer.city === selectedCity);
 
   console.log("filteredDevelopers", filteredDevelopers);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div>

@@ -1,10 +1,13 @@
-import React from "react";
+import {useEffect} from "react";
 import bg from "../Assets/desktop-banner.jpg";
 import Blogs from "../components/Blogs";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 const BlogNews = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div>
       <Navbar />

@@ -1,18 +1,20 @@
-import React from "react";
+import {useEffect} from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
 import { Link } from "react-router-dom";
-
 import {
   FaFacebookSquare,
   FaLinkedin,
   FaYoutube,
   FaInstagramSquare,
 } from "react-icons/fa";
-
 import bg from "../Assets/desktop-banner.jpg";
+import header from "../Assets/modern-balcony-single-blog.jpg"
+import img1 from "../Assets/cosy-decor-balcony.jpg"
+import img2 from "../Assets/minimalist-theme-balcony.jpg"
+import img3 from "../Assets/floral-aesthetics-balcony.jpg"
+
 
 const sections = [
   {
@@ -20,7 +22,7 @@ const sections = [
     title: "Floral Aesthetics",
     description:
       "Incorporating floral aesthetics into your balcony decor helps to add freshness and a splash of colours to your space. You can go for exotic flower plants like roses, lavender, marigolds etc. Invest in quirky planter designs to add a touch of nature to make your balcony inviting.",
-    imageUrl: "https://placehold.co/800x400",
+    imageUrl: img1,
     imageAlt: "A beautifully decorated balcony with flowers and plants",
   },
   // Add more sections here
@@ -29,7 +31,7 @@ const sections = [
     title: "Cozy Seating",
     description:
       "Add cozy seating options like a swing, a small sofa, or comfortable chairs to make your balcony a relaxing spot. Include some cushions and throws for added comfort.",
-    imageUrl: "https://placehold.co/800x400",
+    imageUrl: img2,
     imageAlt: "A balcony with cozy seating arrangements",
   },
   {
@@ -37,12 +39,15 @@ const sections = [
     title: "Lighting",
     description:
       "Proper lighting can transform your balcony into a perfect evening retreat. Use fairy lights, lanterns, or LED candles to create a warm and inviting ambiance.",
-    imageUrl: "https://placehold.co/800x400",
+    imageUrl: img3,
     imageAlt: "A balcony with beautiful lighting",
   },
   // Add more sections as needed
 ];
 const BlogDetail = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
     <div className="">
       <Navbar />
@@ -56,7 +61,7 @@ const BlogDetail = () => {
         <div className="max-w-6xl mx-auto p-4 bg-card text-card-foreground rounded-lg shadow-md">
           <img
             className="w-full h-64 object-cover rounded-t-lg"
-            src="https://placehold.co/800x400"
+            src={header}
             alt="Modern balcony with plants and furniture"
           />
           <div className="p-4">
