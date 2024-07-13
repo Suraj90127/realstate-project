@@ -195,16 +195,16 @@ const Footer = () => {
                 Follow Us
               </h2>
               <div className="flex space-x-4 text-[30px] text-[#d1d1d1]">
-                <a href="#" className="hover:underline hover:text-[#fead26]">
+                <a href="https://www.facebook.com/share/ShvzJdDvycne15UQ/?mibextid=qi2Omg" target="_blank" className="hover:underline hover:text-[#fead26]">
                   <FaFacebookSquare />
                 </a>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
+                <a href="https://www.linkedin.com/company/themaxify/" target="_blank" className="hover:underline hover:text-[#fead26]">
                   <FaLinkedin />
                 </a>
                 <a href="#" className="hover:underline hover:text-[#fead26]">
                   <FaYoutube />
                 </a>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
+                <a href="https://www.instagram.com/maxifywebsolutions?igsh=MXFmeHJ5eXlicjhrMQ==" target="_blank" className="hover:underline hover:text-[#fead26]">
                   <FaInstagramSquare />
                 </a>
               </div>
