@@ -32,7 +32,6 @@ const Home = () => {
   const handleCityChange = (event) => {
     setSelectedCity(event.target.value);
   };
-
   console.log("cites", selectedCity);
 
   useEffect(() => {
@@ -60,7 +59,10 @@ const Home = () => {
           OF YOUR DREAMS
         </h1>
         <div className="searchbox w-auto flex flex-wrap justify-center items-center sm:gap-3 md:gap-0 sm:p-2 md:p-5 h-auto bg-[#ffffff9f]">
-          <select className="md:h-[60px] sm:h-[40px] sm:text-[15px] md:text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0 focus:outline-none focus:outline">
+          <select
+            onChange={handleCityChange}
+            className="md:h-[60px] sm:h-[40px] sm:text-[15px] md:text-[20px] md:w-[120px] sm:w-[100%] bg-white sm:p-3 md:p-0 focus:outline-none focus:outline"
+          >
             <option>Location</option>
             {allProperty.map((c, i) => (
               <option key={i}>{c.city}</option>
