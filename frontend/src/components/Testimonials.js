@@ -4,17 +4,17 @@ import './component.css'
 
 const testimonials = [
     {
-      text: 'If you are looking to buy a property you will find a better deal with Propzilla. Their knowledge of the real estate sector is extensive, and they are very professional and helpful. Thanks for being supportive and responsive.',
+      text: 'If you are looking to buy a property, youll find a better deal with Propzilla. Their extensive knowledge of the real estate sector, combined with their professionalism and helpfulness, ensures a great experience. Thank you for being supportive and responsive.',
       name: 'Sharat Goyal',
       avatar: 'https://placehold.co/48x48',
     },
     {
-      text: 'Propzilla made my home buying experience seamless and stress-free. Their team is incredibly knowledgeable and always available to answer any questions.',
+      text: 'Propzilla made my home-buying experience seamless and stress-free. Their team is incredibly knowledgeable and always available to answer any questions.',
       name: 'Aman Verma',
       avatar: 'https://placehold.co/48x48',
     },
     {
-      text: 'I highly recommend Propzilla for anyone looking to buy or sell property. Their expertise and customer service are top-notch.',
+      text: 'I highly recommend Propzilla for anyone looking to buy or sell property. Their expertise and customer service are outstanding.',
       name: 'Rohit Sharma',
       avatar: 'https://placehold.co/48x48',
     },

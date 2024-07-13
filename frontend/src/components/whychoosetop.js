@@ -13,35 +13,35 @@ const whychoosetop = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           <div className="bg-gradient-to-t from-[#fffcf7] via-[#fff3de] to-[#ffe7bd] text-[var(--card-foreground)] p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
             <div className="flex gap-3 items-center mb-4">
-            <FaHouseDamage className="text-[40px] font-bold"/>
+              <FaHouseDamage className="text-[40px] font-bold" />
               <h3 className="text-xl font-semibold">Easy Consultation</h3>
             </div>
             <p className="text-[var(--muted-foreground)]">
-              We help the buyers from starting to the end of home purchase by
-              understanding their needs and offering them the ideal investment
-              opportunities.
+              We assist buyers throughout the entire home purchase process by
+              understanding their requirements and presenting them with the best
+              investment opportunities.
             </p>
           </div>
           <div className="bg-gradient-to-t from-[#fffcf7] via-[#fff3de] to-[#ffe7bd] text-[var(--card-foreground)] p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
             <div className="flex gap-3 items-center mb-4">
-            <SiWebmoney className="text-[40px] font-bold"/>
+              <SiWebmoney className="text-[40px] font-bold" />
               <h3 className="text-xl font-semibold">Financial Assistance</h3>
             </div>
             <p className="text-[var(--muted-foreground)]">
-              We provide loan advisory, home loan facilitation, evaluation of
-              mortgage options, legal assistance on long and short term
-              relations.
+              We offer loan advisory services, facilitate home loans, evaluate
+              mortgage options, and provide legal assistance for both long-term
+              and short-term arrangements.
             </p>
           </div>
           <div className="bg-gradient-to-t from-[#fffcf7] via-[#fff3de] to-[#ffe7bd] text-[var(--card-foreground)] p-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
             <div className="flex gap-3 items-center mb-4">
-            <RiCustomerService2Fill className="text-[40px] font-bold"/>
+              <RiCustomerService2Fill className="text-[40px] font-bold" />
               <h3 className="text-xl font-semibold">After Sale Assistance</h3>
             </div>
             <p className="text-[var(--muted-foreground)]">
-              We believe in providing the best services to the customers so we
-              don't just stop serving them at the end of their purchase but we
-              also provide the after sale services.
+              We are committed to delivering exceptional service to our
+              customers, extending our support beyond the purchase by offering
+              comprehensive after-sales services.
             </p>
           </div>
         </div>
