@@ -32,7 +32,7 @@ const PropertyDetail = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1000,
+    autoplaySpeed: 2000,
     pauseOnHover: true,
   };
 
@@ -134,7 +134,7 @@ const PropertyDetail = () => {
       <Navbar />
       <div className="projectDetail bg-[#f8f8f8] mt-[70px] flex w-[100%]">
         <div
-          className="ml-[5%] relative w-[90%]   bg-[#f8f8f8] text-start"
+          className="sm:( ml-[0%] w-[100%]) md:ml-[5%] relative md:w-[90%]   bg-[#f8f8f8] text-start"
           
         >
           <BreadCrumb

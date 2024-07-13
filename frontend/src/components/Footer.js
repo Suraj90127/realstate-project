@@ -30,7 +30,7 @@ const Footer = () => {
             <ul>
               <li>
                 <Link
-                  to={`/project/search?city=Bangalore`}
+                  to={`/project/search?name=&&city=Banglore`}
                   className="hover:underline hover:text-[#fead26]"
                 >
                   Property in Bangalore
@@ -38,7 +38,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to={`/project/search?city=Delhi`}
+                  to={`/project/search?name=&&city=Delhi`}
                   className="hover:underline hover:text-[#fead26]"
                 >
                   Property in Delhi
@@ -46,7 +46,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to={`/project/search?city=Goa`}
+                  to={`/project/search?name=&&city=Goa`}
                   className="hover:underline hover:text-[#fead26]"
                 >
                   Property in Goa
@@ -54,18 +54,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to={`/project/search?city=Gurgaon`}
+                  to={`/project/search?name=&&city=Gurgaon`}
                   className="hover:underline hover:text-[#fead26]"
                 >
                   Property in Gurgaon
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={`/project/search?city=Himachal Pradesh`}
-                  className="hover:underline hover:text-[#fead26]"
-                >
-                  Property in Himachal Pradesh
                 </Link>
               </li>
             </ul>
@@ -78,30 +70,21 @@ const Footer = () => {
             </h2>
             <ul>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  Birla Navya
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  Birla Niyara
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  BPTP Fortuna
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  BPTP The Amario
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  Central Park Bellavista Towers
-                </a>
-              </li>
+            <Link
+                  to={`/propertyDetail?nameslug=Ambience-Tiverton`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Residental Ambinance-Tiverton
+                </Link>
+                </li>
+                <li>
+                <Link
+                  to={`/propertyDetail?nameslug=OC-Received-Godrej-South-Estate`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Residental Godrej South
+                </Link>
+                </li>
             </ul>
           </div>
 
@@ -112,29 +95,36 @@ const Footer = () => {
             </h2>
             <ul>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  Adani Downtown Avenue
-                </a>
+              <Link
+                  to={`/propertyDetail?nameslug=Emaar-Business-District-EBD-75A`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Commercial Emaar Business
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  AIPL Autograph
-                </a>
+              <Link
+                  to={`/propertyDetail?nameslug=Embassy-Lake`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Commercial Embassy Lake
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  AIPL Business Club
-                </a>
+              <Link
+                  to={`/propertyDetail?nameslug=Krisumi-Waterfall-Residences`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Commercial Krisumi Waterfall
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  AIPL Joy Central
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
-                  AIPL Joy District
-                </a>
+              <Link
+                  to={`/propertyDetail?nameslug=Century-Ethos`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Commercial Century Ethos
+                </Link>
               </li>
             </ul>
           </div>
@@ -149,29 +139,28 @@ const Footer = () => {
               </h2>
               <ul>
                 <li>
-                  <a href="#" className="hover:underline hover:text-[#fead26]">
-                    Luxury Projects in Gurgaon
-                  </a>
+                <Link
+                  to={`/propertyDetail?nameslug=Emaar-Business-District-EBD-75A`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Property of Gurgaon
+                </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline hover:text-[#fead26]">
-                    Luxury Flats in Gurgaon
-                  </a>
+                <Link
+                  to={`/project/search?name=&&city=Delhi`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Property of Delhi
+                </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:underline hover:text-[#fead26]">
-                    Luxury Homes in Gurgaon
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline hover:text-[#fead26]">
-                    Luxury Apartments in Hebbal
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:underline hover:text-[#fead26]">
-                    Luxury Villas in Bangalore
-                  </a>
+                <Link
+                  to={`/project/search?name=&&city=Mumbai`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
+                  Property of Mumbai
+                </Link>
                 </li>
               </ul>
             </div>
@@ -216,7 +205,7 @@ const Footer = () => {
           <p className="mt-4">
             &copy; 2024 PROPZILLA INFRATECH PRIVATE LIMITED
           </p>
-          <div className="mt-4">
+          {/* <div className="mt-4">
             <a href="#" className="hover:underline hover:text-[#fead26]">
               About us
             </a>{" "}
@@ -244,7 +233,7 @@ const Footer = () => {
             <a href="#" className="hover:underline hover:text-[#fead26]">
               Disclaimer
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
