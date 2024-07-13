@@ -12,8 +12,8 @@ dotenv.config();
 
 const app = express();
 
-const __fileName = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__fileName);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(
   cors({
@@ -24,14 +24,14 @@ app.use(
 
 app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-app.get("*", function (req, res) {
-  res.sendFile(path.json(__dirname, "../frontend/build/index.html"));
-});
-
 app.use(express.json());
 app.use(fileUpload({ useTempFiles: true, tempFileDir: "/tmp/" }));
 app.use("/api/properties", propertyRoutes);
 app.use("/api/contect", contectRoutes);
+
+// app.get("*", function (req, res) {
+//   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
+// });
 
 const port = process.env.PORT || 5000;
 

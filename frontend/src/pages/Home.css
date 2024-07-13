@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
-.header{
+
+.header {
     position: relative;
     height: 100vh;
     width: 100%;
@@ -10,14 +11,16 @@
     flex-direction: column;
     font-family: "Roboto Condensed", sans-serif;
 }
-.header img{
+
+.header img {
     position: absolute;
     z-index: -1;
     height: 100vh;
     width: 100%;
     object-fit: cover;
 }
-.video-section{
+
+.video-section {
     background-image: url(../Assets/video-bg\ \(1\).webp);
     background-size: cover;
     height: 445px;
@@ -28,22 +31,27 @@
     align-items: center;
 }
 
-.contact{
+.contact {
     font-family: "Roboto Condensed", sans-serif;
 }
-.developer-page{
+
+.developer-page {
     font-family: "Roboto Condensed", sans-serif;
 }
-.projectDetail{
+
+.projectDetail {
     font-family: "Roboto Condensed", sans-serif;
 }
-.project{
+
+.project {
     font-family: "Roboto Condensed", sans-serif;
 }
-.blog-detail{
+
+.blog-detail {
     font-family: "Roboto Condensed", sans-serif;
 }
-.developer-header{
+
+.developer-header {
     position: relative;
     height: 320px;
     width: 100%;
@@ -54,10 +62,46 @@
     flex-direction: column;
     font-family: "Roboto Condensed", sans-serif;
 }
-.developer-header img{
+
+.developer-header img {
     position: absolute;
     z-index: -1;
     height: 320px;
     width: 100%;
     object-fit: cover;
+}
+
+
+
+/* popup form model start*/
+
+.popup-transition-enter {
+    opacity: 0;
+    transform: translateY(-100%);
+}
+
+.popup-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s, transform 0.5s;
+
+}
+
+.popup-transition-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.popup-transition-exit-active {
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* popup form model start end*/
+
+.active {
+    opacity: 1;
+    transform: translateY(-100%);
+    transition: opacity 0.5s, transform 0.5s;
 }

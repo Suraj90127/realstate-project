@@ -13,6 +13,8 @@ import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { VscDebugBreakpointLog } from "react-icons/vsc";
 import { IoDocumentTextSharp } from "react-icons/io5";
+import { RxCross2 } from "react-icons/rx";
+import { CSSTransition } from "react-transition-group";
 import {
   fetchProperties,
   clearMessages,
@@ -20,20 +22,23 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import BreadCrumb from "../components/BreadCrumb";
+import contect from "../Assets/contect.webp";
 
 const PropertyDetail = () => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 200,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 1000,
     pauseOnHover: true,
   };
 
   const [openIndex, setOpenIndex] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+  const [addActiveClass, setAddActiveClass] = useState();
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -87,6 +92,19 @@ const PropertyDetail = () => {
     });
   };
 
+  useEffect(() => {
+    if (showPopup) {
+      document.body.style.Color = "gray";
+    } else {
+      document.body.style.backgroundColor = "";
+    }
+
+    return () => {
+      // Clean up the background color when the component unmounts or showPopup changes
+      document.body.style.backgroundColor = "";
+    };
+  }, [showPopup]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -109,7 +127,7 @@ const PropertyDetail = () => {
   };
 
   return (
-    <div>
+    <div className="relative">
       <Navbar />
       <div className="projectDetail bg-[#f8f8f8] mt-[70px] flex w-[100%] ">
         <div
@@ -122,7 +140,7 @@ const PropertyDetail = () => {
             url={"/project"}
           />
 
-          <div className="flex justify-center w-full h-screen mx-auto ">
+          <div className="flex justify-center w-full h-screen mx-auto">
             <div className="h-full overflow-auto flex-1 no-scrollbar">
               {filteredProperties.map((pro, i) => (
                 <div className="max-w-5xl  p-4">
@@ -278,6 +296,7 @@ const PropertyDetail = () => {
                     <button
                       className="bg-[#fead26] flex items-center gap-3 text-white font-semibold h-[40px] px-3 rounded-sm"
                       id="hightlight"
+                      onClick={() => setShowPopup(!showPopup)}
                     >
                       <IoDocumentTextSharp />
                       Enquire Now
@@ -327,7 +346,10 @@ const PropertyDetail = () => {
                   </div>
 
                   <div className="flex justify-center mt-[20px] mb-[20px] ">
-                    <button className="bg-[#fead26] flex items-center gap-3 text-white font-semibold h-[40px] px-3 rounded-sm">
+                    <button
+                      className="bg-[#fead26] flex items-center gap-3 text-white font-semibold h-[40px] px-3 rounded-sm"
+                      onClick={() => setShowPopup(!showPopup)}
+                    >
                       <IoDocumentTextSharp /> Download Broucher
                     </button>
                   </div>
@@ -375,7 +397,10 @@ const PropertyDetail = () => {
                     </table>
                   </div>
                   <div className="flex justify-center mt-[20px] mb-[20px] ">
-                    <button className="bg-[#fead26] text-white font-semibold h-[40px] px-3 rounded-sm">
+                    <button
+                      className="bg-[#fead26] text-white font-semibold h-[40px] px-3 rounded-sm"
+                      onClick={() => setShowPopup(!showPopup)}
+                    >
                       Shadule a Site Visit
                     </button>
                   </div>
@@ -533,104 +558,104 @@ const PropertyDetail = () => {
                 </div>
               ))}
               <div className="max-w-6xl  p-4 sm:block lg:hidden">
-              <div className=" p-4 bg-white h-[600px] rounded-lg shadow-md mt-4">
-                {filteredProperties.map((pro) => (
-                  <div className="text-center mb-4">
-                    <h1 className="text-3xl font-bold text-[#fead26]">
-                      Titanium <span className="text-primary">SPR</span>
-                    </h1>
-                    <p className="text-muted-foreground">
-                      {" "}
-                      <span>{pro.location}</span>, <span>{pro.city}</span>{" "}
-                    </p>
-                  </div>
-                ))}
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Full Name"
-                      className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Email ID"
-                      className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                  </div>
-                  <div className="flex mb-4">
-                    <select className="w-1/3 p-2 border border-border rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
-                      <option>India (+91)</option>
-                    </select>
-                    <input
-                      type="text"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="Mobile"
-                      className="w-2/3 p-2 border border-border rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                  </div>
-                  <div className="mb-4">
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Message"
-                      className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    ></textarea>
-                  </div>
-                  <div className="mb-4 flex items-start">
-                    <input type="checkbox" id="terms" className="mr-2" />
-                    <label htmlFor="terms" className="text-muted-foreground">
-                      By submitting this form I agree to{" "}
-                      <a href="#" className="text-primary underline">
-                        Terms of Use
+                <div className=" p-4 bg-white h-[600px] rounded-lg shadow-md mt-4">
+                  {filteredProperties.map((pro) => (
+                    <div className="text-center mb-4">
+                      <h1 className="text-3xl font-bold text-[#fead26]">
+                        Titanium <span className="text-primary">SPR</span>
+                      </h1>
+                      <p className="text-muted-foreground">
+                        {" "}
+                        <span>{pro.location}</span>, <span>{pro.city}</span>{" "}
+                      </p>
+                    </div>
+                  ))}
+                  <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                      <input
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Full Name"
+                        className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="Email ID"
+                        className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                    <div className="flex mb-4">
+                      <select className="w-1/3 p-2 border border-border rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        <option>India (+91)</option>
+                      </select>
+                      <input
+                        type="text"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="Mobile"
+                        className="w-2/3 p-2 border border-border rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <textarea
+                        name="message"
+                        value={formData.message}
+                        onChange={handleChange}
+                        placeholder="Message"
+                        className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                      ></textarea>
+                    </div>
+                    <div className="mb-4 flex items-start">
+                      <input type="checkbox" id="terms" className="mr-2" />
+                      <label htmlFor="terms" className="text-muted-foreground">
+                        By submitting this form I agree to{" "}
+                        <a href="#" className="text-primary underline">
+                          Terms of Use
+                        </a>
+                      </label>
+                    </div>
+                    <button className="w-full bg-[#fead26] text-white py-2 rounded-md">
+                      Request a Call Back
+                    </button>
+                  </form>
+                  <div className="mt-4 flex justify-center space-x-2">
+                    <div className="flex space-x-4 text-[30px] text-[#303030]">
+                      <a
+                        href="#"
+                        className="hover:underline hover:text-[#fead26]"
+                      >
+                        <FaFacebookSquare />
                       </a>
-                    </label>
-                  </div>
-                  <button className="w-full bg-[#fead26] text-white py-2 rounded-md">
-                    Request a Call Back
-                  </button>
-                </form>
-                <div className="mt-4 flex justify-center space-x-2">
-                  <div className="flex space-x-4 text-[30px] text-[#303030]">
-                    <a
-                      href="#"
-                      className="hover:underline hover:text-[#fead26]"
-                    >
-                      <FaFacebookSquare />
-                    </a>
-                    <a
-                      href="#"
-                      className="hover:underline hover:text-[#fead26]"
-                    >
-                      <FaLinkedin />
-                    </a>
-                    <a
-                      href="#"
-                      className="hover:underline hover:text-[#fead26]"
-                    >
-                      <FaYoutube />
-                    </a>
-                    <a
-                      href="#"
-                      className="hover:underline hover:text-[#fead26]"
-                    >
-                      <FaInstagramSquare />
-                    </a>
+                      <a
+                        href="#"
+                        className="hover:underline hover:text-[#fead26]"
+                      >
+                        <FaLinkedin />
+                      </a>
+                      <a
+                        href="#"
+                        className="hover:underline hover:text-[#fead26]"
+                      >
+                        <FaYoutube />
+                      </a>
+                      <a
+                        href="#"
+                        className="hover:underline hover:text-[#fead26]"
+                      >
+                        <FaInstagramSquare />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
 
             <div className="max-w-6xl  p-4 sm:hidden lg:block">
@@ -735,6 +760,93 @@ const PropertyDetail = () => {
           </div>
         </div>
       </div>
+      <CSSTransition
+        in={showPopup}
+        timeout={500}
+        classNames="popup-transition"
+        unmountOnExit
+      >
+        <div className="max-w-6xl sm:hidden lg:block absolute top-5 right-[25%] border-[10px] border-yellow-500 rounded-lg bg-white">
+          <div
+            className="absolute -right-4 -top-4 p-1 rounded-full bg-yellow-500 text-black text-2xl cursor-pointer"
+            onClick={() => setShowPopup(false)}
+          >
+            <RxCross2 />
+          </div>
+          <div className="border-b-2 text-center py-5">
+            <h3 className="text-2xl text-black font-semibold roboto-bold">
+              Download Brochure
+            </h3>
+            <p className="roboto-bold mt-3">
+              Contact our Specialist on <span>+91 9876543210</span> or kindly
+              provide your details below
+            </p>
+          </div>
+          <div className="flex py-1 px-3">
+            {filteredProperties.map((pro) => (
+              <div className="image flex flex-col justify-center" key={pro.id}>
+                <img className="w-80" src={pro.gallery[0]} alt="" />
+              </div>
+            ))}
+
+            <div className="p-4 bg-white h-auto rounded-lg">
+              <form onSubmit={handleSubmit}>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Full Name"
+                    className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email ID"
+                    className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <div className="flex mb-4">
+                  <select className="w-1/3 p-2 border border-border rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option>India (+91)</option>
+                  </select>
+                  <input
+                    type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Mobile"
+                    className="w-2/3 p-2 border border-border rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
+                </div>
+                <div className="mb-4">
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Message"
+                    className="w-full p-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  ></textarea>
+                </div>
+                <div className="mb-4 flex ">
+                  <input type="checkbox" id="terms" className="mr-2" />
+                  <label htmlFor="terms" className="text-muted-foreground">
+                    I Agree Terms & Coditions
+                  </label>
+                </div>
+                <button className="w-full bg-[#fead26] text-white py-2 rounded-md">
+                  Request a Call Back
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </CSSTransition>
       <Footer />
     </div>
   );

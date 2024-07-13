@@ -5,6 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import logo from "../Assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -28,29 +29,44 @@ const Footer = () => {
             </h2>
             <ul>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
+                <Link
+                  to={`/project/search?city=Bangalore`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
                   Property in Bangalore
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
+                <Link
+                  to={`/project/search?city=Delhi`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
                   Property in Delhi
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
+                <Link
+                  to={`/project/search?city=Goa`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
                   Property in Goa
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
+                <Link
+                  to={`/project/search?city=Gurgaon`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
                   Property in Gurgaon
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:underline hover:text-[#fead26]">
+                <Link
+                  to={`/project/search?city=Himachal Pradesh`}
+                  className="hover:underline hover:text-[#fead26]"
+                >
                   Property in Himachal Pradesh
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
