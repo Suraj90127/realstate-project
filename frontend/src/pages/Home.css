@@ -105,3 +105,14 @@
     transform: translateY(-100%);
     transition: opacity 0.5s, transform 0.5s;
 }
+
+
+datalist {
+    /* display: block; */
+    width: 100%;
+}
+
+datalist option {
+    /* display: block; */
+    width: 100%;
+}

@@ -35,7 +35,7 @@ const Projectslider = ({ allProperty }) => {
 
   return (
     <div className="project-slider">
-      <div className="container w-[90%] mx-auto px-4 py-6">
+      <div className="containe w-[90%] mx-auto px-4 py-6">
         <h1 className="text-4xl font-bold text-center mb-8">
           FEATURED <span className="text-[#fead26]">PROJECTS</span>
         </h1>

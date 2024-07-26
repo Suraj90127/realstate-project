@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import bg from "../Assets/desktop-banner.jpg";
-import { MdOutlineCurrencyRupee } from "react-icons/md";
+import { MdOutlineCurrencyRupee, MdOutlineWhatsapp } from "react-icons/md";
 import { FaBuilding } from "react-icons/fa";
 import { IoKeySharp } from "react-icons/io5";
 import { FaBed } from "react-icons/fa";
@@ -48,6 +48,9 @@ const PropertySerch = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  const whatsappUrl =
+    "https://wa.me/918765432100?text=Hello, I'm interested in your property!";
 
   return (
     <div className="project">
@@ -130,21 +133,27 @@ const PropertySerch = () => {
                   </h3>
                   <p>{property.reraId}</p>
                 </div>
-                <div className="flex border-t-2 p-2 gap-5">
-                  <button className="bg-[white] flex gap-2  sm:h-[40px] md:h-auto text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-1 rounded-[10px]">
-                    <span className="mt-1">
-                      <BiLogoWhatsapp />
-                    </span>{" "}
-                    <span> Whatsapp</span>
-                  </button>
+                <div className="flex border-t-2 p-1  gap-5">
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[white] flex items-center text-center sm:w-[100%] md:w-[auto] gap-2 sm:h-[40px] justify-center md:h-[40px] text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-2 rounded-[10px]"
+                  >
+                    <MdOutlineWhatsapp className="text-[20px]" />
+                    Whatsapp
+                  </a>
                   <Link to={`/propertyDetail?nameslug=${property.nameslug}`}>
-                    <button className="bg-[#fead26] sm:h-[40px] md:h-auto text-[white] hover:bg-transparent hover:text-[#fead26] border-[#fead26] border sm:px-3 lg:px-7 py-1 rounded-[10px] flex gap-1">
+                    <button className="bg-[#fead26] sm:h-[40px] text-[white] hover:bg- md:h-[40px] hover:text-[#fead26] border-[#fead26] border sm:px-3 lg:px-7 py-1 rounded-[10px] flex gap-1">
                       <span className="sm:hidden md:block">View</span> Detail
                     </button>
                   </Link>
-                  <button className="bg-[#fead26] sm:h-[40px] md:h-auto text-[white] hover:bg-transparent hover:text-[#fead26] border-[#fead26] border sm:px-3 lg:px-7 py-1 rounded-[10px] flex gap-1">
+                  <a
+                    href="tel:+919627648487"
+                    className="bg-[#fead26] sm:h-[40px] md:h-[40px] text-[white] hover:bg-transparent hover:text-[#fead26] border-[#fead26] border sm:px-3 lg:px-7 py-1 rounded-[10px] flex gap-1"
+                  >
                     <span className="sm:hidden md:block">Get</span> Call
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

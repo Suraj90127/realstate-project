@@ -51,7 +51,9 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className={scrolled ? "navbar scrolled" : "navbar"}> {/* Apply class based on scroll */}
+      <nav className={scrolled ? "navbar scrolled" : "navbar"}>
+        {" "}
+        {/* Apply class based on scroll */}
         <div className="navbar">
           <i ref={menuIconRef} className="bx bx-menu" onClick={handleMenuClick}>
             <IoReorderThreeSharp />
@@ -68,11 +70,7 @@ const Navbar = () => {
           >
             <div className="sidebar-logo">
               <span className="logo-name">
-                <img
-                  style={{ width: "150px" }}
-                  src={logo}
-                  alt="Logo"
-                />
+                <img style={{ width: "150px" }} src={logo} alt="Logo" />
               </span>
               <i className="bx bx-x" onClick={handleCloseClick}>
                 <IoMdClose />
@@ -97,9 +95,7 @@ const Navbar = () => {
               <li>
                 <Link to="/contact">CONTACT</Link>
               </li>
-              <li>
-                <Link to="/dashbord">Admin</Link>
-              </li>
+              <li>{/* <Link to="/dashbord">Admin</Link> */}</li>
               <li>
                 <Link to="/contact" className="search-box flex">
                   <MdCall className="mt-3 call text-[25px]" />

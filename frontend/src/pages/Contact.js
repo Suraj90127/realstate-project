@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 import bg from "../Assets/desktop-banner.jpg";
 
 import Navbar from "../components/Navbar";
@@ -49,13 +49,20 @@ const Contact = () => {
                   <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs">
                     EMAIL
                   </h2>
-                  <a className="text-[#fead26] leading-relaxed">
-                    example@email.com
+                  <a
+                    href="mailto:info@maxifysolution.com"
+                    className="cursor-pointer"
+                  >
+                    info@maxifysolution.com
                   </a>
                   <h2 className="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">
                     PHONE
                   </h2>
-                  <p className="leading-relaxed">123-456-7890</p>
+                  <a href="tel:+919627648487" className="cursor-pointer">
+                    <h2 className="text-sm font-medium text-slate-700">
+                      +91 9627-648-487
+                    </h2>
+                  </a>
                 </div>
               </div>
             </div>

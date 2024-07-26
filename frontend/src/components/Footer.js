@@ -70,21 +70,21 @@ const Footer = () => {
             </h2>
             <ul>
               <li>
-            <Link
+                <Link
                   to={`/propertyDetail?nameslug=Ambience-Tiverton`}
                   className="hover:underline hover:text-[#fead26]"
                 >
                   Residental Ambinance-Tiverton
                 </Link>
-                </li>
-                <li>
+              </li>
+              <li>
                 <Link
                   to={`/propertyDetail?nameslug=OC-Received-Godrej-South-Estate`}
                   className="hover:underline hover:text-[#fead26]"
                 >
                   Residental Godrej South
                 </Link>
-                </li>
+              </li>
             </ul>
           </div>
 
@@ -95,7 +95,7 @@ const Footer = () => {
             </h2>
             <ul>
               <li>
-              <Link
+                <Link
                   to={`/propertyDetail?nameslug=Emaar-Business-District-EBD-75A`}
                   className="hover:underline hover:text-[#fead26]"
                 >
@@ -103,7 +103,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-              <Link
+                <Link
                   to={`/propertyDetail?nameslug=Embassy-Lake`}
                   className="hover:underline hover:text-[#fead26]"
                 >
@@ -111,7 +111,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-              <Link
+                <Link
                   to={`/propertyDetail?nameslug=Krisumi-Waterfall-Residences`}
                   className="hover:underline hover:text-[#fead26]"
                 >
@@ -119,7 +119,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-              <Link
+                <Link
                   to={`/propertyDetail?nameslug=Century-Ethos`}
                   className="hover:underline hover:text-[#fead26]"
                 >
@@ -139,28 +139,28 @@ const Footer = () => {
               </h2>
               <ul>
                 <li>
-                <Link
-                  to={`/propertyDetail?nameslug=Emaar-Business-District-EBD-75A`}
-                  className="hover:underline hover:text-[#fead26]"
-                >
-                  Property of Gurgaon
-                </Link>
+                  <Link
+                    to={`/propertyDetail?nameslug=Emaar-Business-District-EBD-75A`}
+                    className="hover:underline hover:text-[#fead26]"
+                  >
+                    Property of Gurgaon
+                  </Link>
                 </li>
                 <li>
-                <Link
-                  to={`/project/search?name=&&city=Delhi`}
-                  className="hover:underline hover:text-[#fead26]"
-                >
-                  Property of Delhi
-                </Link>
+                  <Link
+                    to={`/project/search?name=&&city=Delhi`}
+                    className="hover:underline hover:text-[#fead26]"
+                  >
+                    Property of Delhi
+                  </Link>
                 </li>
                 <li>
-                <Link
-                  to={`/project/search?name=&&city=Mumbai`}
-                  className="hover:underline hover:text-[#fead26]"
-                >
-                  Property of Mumbai
-                </Link>
+                  <Link
+                    to={`/project/search?name=&&city=Mumbai`}
+                    className="hover:underline hover:text-[#fead26]"
+                  >
+                    Property of Mumbai
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -175,7 +175,17 @@ const Footer = () => {
                 Tower, Golf Course Ext. Road, Sector 65, Gurugram
               </p>
               <p>Sales & Support: 1800 123 4567</p>
-              <p>Email: info@propzilla.in</p>
+              <p>
+                <span>Email : </span>
+                <span>
+                  <a
+                    href="mailto:info@maxifysolution.com"
+                    className="cursor-pointer"
+                  >
+                    info@maxifysolution.com
+                  </a>
+                </span>
+              </p>
             </div>
 
             {/* Social Media */}
@@ -184,16 +194,28 @@ const Footer = () => {
                 Follow Us
               </h2>
               <div className="flex space-x-4 text-[30px] text-[#d1d1d1]">
-                <a href="https://www.facebook.com/share/ShvzJdDvycne15UQ/?mibextid=qi2Omg" target="_blank" className="hover:underline hover:text-[#fead26]">
+                <a
+                  href="https://www.facebook.com/share/ShvzJdDvycne15UQ/?mibextid=qi2Omg"
+                  target="_blank"
+                  className="hover:underline hover:text-[#fead26]"
+                >
                   <FaFacebookSquare />
                 </a>
-                <a href="https://www.linkedin.com/company/themaxify/" target="_blank" className="hover:underline hover:text-[#fead26]">
+                <a
+                  href="https://www.linkedin.com/company/themaxify/"
+                  target="_blank"
+                  className="hover:underline hover:text-[#fead26]"
+                >
                   <FaLinkedin />
                 </a>
                 <a href="#" className="hover:underline hover:text-[#fead26]">
                   <FaYoutube />
                 </a>
-                <a href="https://www.instagram.com/maxifywebsolutions?igsh=MXFmeHJ5eXlicjhrMQ==" target="_blank" className="hover:underline hover:text-[#fead26]">
+                <a
+                  href="https://www.instagram.com/maxifywebsolutions?igsh=MXFmeHJ5eXlicjhrMQ=="
+                  target="_blank"
+                  className="hover:underline hover:text-[#fead26]"
+                >
                   <FaInstagramSquare />
                 </a>
               </div>

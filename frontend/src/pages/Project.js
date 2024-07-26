@@ -18,41 +18,13 @@ import { MdCall } from "react-icons/md";
 import { IoInformationCircleSharp } from "react-icons/io5";
 import { PiMapPinSimpleArea } from "react-icons/pi";
 
-
 import {
   fetchProperties,
   clearMessages,
 } from "../store/reducer/propertyReducer";
 
-const properties1 = [
-  {
-    id: 1,
-    title: "Signature Global Titanium SPR",
-    location: "Sector 71, Gurgaon",
-    apartments: "3.5 & 4.5 BHK",
-    area: "2600 Sq.Ft.",
-    price: "₹ 4.60 Cr* Onwards",
-    reraId: "RC/REP/HARERA/GGM/",
-    possessionDate: "Feb, 2029",
-    status: "New Launch",
-    imageUrl: img1, // Replace with actual image URL
-    logoUrl: logo, // Replace with actual logo URL
-  },
-  {
-    id: 2,
-    title: "Smart World The Edition",
-    location: "Sector 66, Golf Course Ext. Road, Gurgaon",
-    apartments: "3.5 & 4.5 BHK",
-    area: "2945 Sq. Ft.",
-    price: "₹ 6.15 Cr* Onwards",
-    reraId: "GGM/756/488/2023/100",
-    possessionDate: "Feb, 2031",
-    status: "New Launch",
-    imageUrl: img1,
-    logoUrl: logo,
-  },
-];
-
+const whatsappUrl =
+  "https://wa.me/918765432100?text=Hello, I'm interested in your property!";
 const Project = () => {
   const dispatch = useDispatch();
   const { properties, successMessage, errorMessage, loading } = useSelector(
@@ -113,11 +85,17 @@ const Project = () => {
             </div>
             <div className="flex flex-wrap gap-4 p-2">
               <p className="flex items-center gap-2">
-              <FaBuilding />
+                <FaBuilding />
                 {property.apartments}
               </p>
-              <p className="flex items-center gap-2"><FaBed />{property.bhk}</p>
-              <p className="flex items-center gap-2"><PiMapPinSimpleArea />{property.area}</p>
+              <p className="flex items-center gap-2">
+                <FaBed />
+                {property.bhk}
+              </p>
+              <p className="flex items-center gap-2">
+                <PiMapPinSimpleArea />
+                {property.area}
+              </p>
               <p className="flex items-center gap-1">
                 <MdOutlineCurrencyRupee />
                 {property.price}
@@ -139,18 +117,31 @@ const Project = () => {
               <p>N/A</p>
             </div>
             <div className="flex flex-wrap border-t-2 p-2 gap-5">
-              <button className="bg-[white] flex items-center text-center sm:w-[100%] md:w-[auto] gap-2 sm:h-[40px] justify-center md:h-auto text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-2 rounded-[10px]">
-              <MdOutlineWhatsapp className="text-[20px]" />
-Whatsapp
-              </button>
-              <Link to={`/propertyDetail?nameslug=${property.nameslug}`}  className="sm:w-[100%]  md:w-auto">
-                <button className="bg-[#fead26] sm:w-[100%] sm:h-[40px] md:w-[auto] items-center md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex justify-center gap-1">
-                <IoInformationCircleSharp className="text-[20px]"/>View Detail
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[white] flex items-center text-center sm:w-[100%] md:w-[auto] gap-2 md:h-[32px] sm:h-[40px] justify-center  text-[#20a520] border-[#27b827] border sm:px-3 lg:px-7 py-1 rounded-[10px]"
+              >
+                <MdOutlineWhatsapp className="text-[20px]" />
+                Whatsapp
+              </a>
+              <Link
+                to={`/propertyDetail?nameslug=${property.nameslug}`}
+                className="sm:w-[100%]  md:w-auto"
+              >
+                <button className="bg-[#fead26] sm:w-[100%] sm:h-[40px] md:w-[auto] items-center md:h-[32px] text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] flex justify-center gap-1">
+                  <IoInformationCircleSharp className="text-[20px]" />
+                  View Detail
                 </button>
               </Link>
-              <button className="bg-[#fead26] sm:w-[100%] sm:h-[40px] md:w-[auto] items-center md:h-auto text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] justify-center  flex gap-1">
-              <MdCall className="text-[20px]"/><span className="sm:hidden md:block">Get</span> Call
-              </button>
+              <a
+                href="tel:+919627648487"
+                className="bg-[#fead26] sm:w-[100%] sm:h-[40px] md:w-[auto] items-center md:h-[32px] text-[white] border-[#fead26] border sm:px-3 lg:px-7 py-2 rounded-[10px] justify-center  flex gap-1"
+              >
+                <MdCall className="text-[20px]" />
+                <span className="sm:hidden md:block">Get</span> Call
+              </a>
             </div>
           </div>
         </div>

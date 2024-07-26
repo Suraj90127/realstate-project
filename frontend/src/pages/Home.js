@@ -28,6 +28,7 @@ const Home = () => {
   const [citise, setCitise] = useState();
   const [inputValue, setInputValue] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
+  const [location, setLocation] = useState([]);
 
   const handleCityChange = (event) => {
     setSelectedCity(event.target.value);
@@ -43,6 +44,20 @@ const Home = () => {
   }, [properties]);
 
   console.log("home", allProperty);
+
+  var filteredLocation = [];
+  // const changeLocation = (selectedCity) => {
+  if (selectedCity) {
+    filteredLocation = properties.filter(
+      (property) => property.city === selectedCity
+    );
+  } else {
+    filteredLocation = properties;
+  }
+  // };
+
+  console.log("location", filteredLocation);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -76,15 +91,15 @@ const Home = () => {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
-          <datalist id="property-options">
-            {properties.map((property, i) => (
-              <div>
-                <option key={i} value={property.name} />
+          <datalist id="property-options" className="w-[600px]">
+            {filteredLocation.map((property, i) => (
+              <div className="w-[600px]">
+                <option key={i} value={property.location} />
               </div>
             ))}
-            {properties.map((property, i) => (
+            {/* {properties.map((property, i) => (
               <option key={i + properties.length} value={property.city} />
-            ))}
+            ))} */}
           </datalist>
           <Link to={`/project/search?name=${inputValue}&&city=${selectedCity}`}>
             <button className="md:h-[60px] w-[60px] sm:h-[40px] bg-[#fead26] text-[white] text-[20px] flex justify-center items-center">

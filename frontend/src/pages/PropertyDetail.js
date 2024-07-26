@@ -133,10 +133,7 @@ const PropertyDetail = () => {
     <div className="relative">
       <Navbar />
       <div className="projectDetail bg-[#f8f8f8] mt-[70px] flex w-[100%]">
-        <div
-          className="sm:( ml-[0%] w-[100%]) md:ml-[5%] relative md:w-[90%]   bg-[#f8f8f8] text-start"
-          
-        >
+        <div className="sm:( ml-[0%] w-[100%]) md:ml-[5%] relative md:w-[90%]   bg-[#f8f8f8] text-start">
           <BreadCrumb
             title={propertyName}
             title2={"/ Projects"}
@@ -328,7 +325,10 @@ const PropertyDetail = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="p-4 bg-[white] text-card-foreground" id="amenities">
+                  <div
+                    className="p-4 bg-[white] text-card-foreground"
+                    id="amenities"
+                  >
                     <h2 className="text-2xl font-bold mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Signature Global Titanium SPR Amenities
                     </h2>
@@ -348,7 +348,10 @@ const PropertyDetail = () => {
                     </div>
                   </div>
 
-                  <div className="flex justify-center mt-[20px] mb-[20px] " id="gallery">
+                  <div
+                    className="flex justify-center mt-[20px] mb-[20px] "
+                    id="gallery"
+                  >
                     <button
                       className="bg-[#fead26] flex items-center gap-3 text-white font-semibold h-[40px] px-3 rounded-sm"
                       onClick={() => setShowPopup(!showPopup)}
@@ -372,7 +375,10 @@ const PropertyDetail = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="bg-white p-4 rounded-lg shadow-md mt-[20px]" id="price">
+                  <div
+                    className="bg-white p-4 rounded-lg shadow-md mt-[20px]"
+                    id="price"
+                  >
                     <h2 className="text-lg font-bold text-card-foreground mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Signature Global Titanium SPR Price List
                     </h2>
@@ -431,7 +437,10 @@ const PropertyDetail = () => {
                       ))}
                     </div>
                   </div>
-                  <div className="bg-white text-card-foreground p-4 rounded-lg shadow-md mx-auto my-8" id="location">
+                  <div
+                    className="bg-white text-card-foreground p-4 rounded-lg shadow-md mx-auto my-8"
+                    id="location"
+                  >
                     <h2 className="text-2xl font-bold mb-4 bg-[#e9e9ed]  px-2 py-2 rounded-[5px]">
                       Location Advantage
                     </h2>
@@ -632,13 +641,15 @@ const PropertyDetail = () => {
                   <div className="mt-4 flex justify-center space-x-2">
                     <div className="flex space-x-4 text-[30px] text-[#303030]">
                       <a
-                       href="https://www.facebook.com/share/ShvzJdDvycne15UQ/?mibextid=qi2Omg" target="_blank"
+                        href="https://www.facebook.com/share/ShvzJdDvycne15UQ/?mibextid=qi2Omg"
+                        target="_blank"
                         className="hover:underline hover:text-[#fead26]"
                       >
                         <FaFacebookSquare />
                       </a>
                       <a
-                        href="https://www.linkedin.com/company/themaxify/" target="_blank"
+                        href="https://www.linkedin.com/company/themaxify/"
+                        target="_blank"
                         className="hover:underline hover:text-[#fead26]"
                       >
                         <FaLinkedin />
@@ -650,7 +661,8 @@ const PropertyDetail = () => {
                         <FaYoutube />
                       </a>
                       <a
-                        href="https://www.instagram.com/maxifywebsolutions?igsh=MXFmeHJ5eXlicjhrMQ==" target="_blank"
+                        href="https://www.instagram.com/maxifywebsolutions?igsh=MXFmeHJ5eXlicjhrMQ=="
+                        target="_blank"
                         className="hover:underline hover:text-[#fead26]"
                       >
                         <FaInstagramSquare />
@@ -698,6 +710,7 @@ const PropertyDetail = () => {
                   <div className="flex mb-4">
                     <select className="w-1/3 p-2 border border-border rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
                       <option>India (+91)</option>
+                      <option>USA (+1)</option>
                     </select>
                     <input
                       type="text"
@@ -733,19 +746,22 @@ const PropertyDetail = () => {
                 <div className="mt-4 flex justify-center space-x-2">
                   <div className="flex space-x-4 text-[30px] text-[#303030]">
                     <a
-                      href="https://www.facebook.com/share/ShvzJdDvycne15UQ/?mibextid=qi2Omg" target="_blank"
+                      href="https://www.facebook.com/share/ShvzJdDvycne15UQ/?mibextid=qi2Omg"
+                      target="_blank"
                       className="hover:underline hover:text-[#fead26]"
                     >
                       <FaFacebookSquare />
                     </a>
                     <a
-                      href="https://www.linkedin.com/company/themaxify/" target="_blank"
+                      href="https://www.linkedin.com/company/themaxify/"
+                      target="_blank"
                       className="hover:underline hover:text-[#fead26]"
                     >
                       <FaLinkedin />
                     </a>
                     <a
-                      href="https://www.instagram.com/maxifywebsolutions?igsh=MXFmeHJ5eXlicjhrMQ==" target="_blank"
+                      href="https://www.instagram.com/maxifywebsolutions?igsh=MXFmeHJ5eXlicjhrMQ=="
+                      target="_blank"
                       className="hover:underline hover:text-[#fead26]"
                     >
                       <FaYoutube />
@@ -817,6 +833,7 @@ const PropertyDetail = () => {
                 <div className="flex mb-4">
                   <select className="w-1/3 p-2 border border-border rounded-l-md focus:outline-none focus:ring-2 focus:ring-primary">
                     <option>India (+91)</option>
+                    <option>USA (+1)</option>
                   </select>
                   <input
                     type="text"
